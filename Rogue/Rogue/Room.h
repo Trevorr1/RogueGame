@@ -1,7 +1,8 @@
 #pragma once
-#include <iostream>;
-#include <vector>
+
 #include "Opponent.h"
+#include <iostream>
+#include <vector>
 
 using namespace std;
 

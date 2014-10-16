@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "Opponent.h"
-#include "MapLevel.h"
+#include "Room.h"
 
 class Manager
 {
@@ -10,8 +10,8 @@ public:
 	Manager();
 	~Manager();
 
-	vector<MapLevel> mapLevels;
+	vector<Room*> mapLevels;
 
-	void addMapLevel(MapLevel mapLevel);
+	void addMapLevel(Room* room);
 };
 

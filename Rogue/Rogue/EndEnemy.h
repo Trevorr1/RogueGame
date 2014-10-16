@@ -5,6 +5,6 @@ class EndEnemy :
 {
 public:
 	EndEnemy();
-	~EndEnemy();
+	virtual ~EndEnemy();
 };
 

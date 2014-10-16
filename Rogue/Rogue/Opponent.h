@@ -3,9 +3,11 @@ class Opponent
 {
 public:
 	Opponent();// (int a);
-	~Opponent();
+	virtual~Opponent();
 
+	virtual int get_level();
+
+protected:
 	int level;
-	int get_level();
 };
 
