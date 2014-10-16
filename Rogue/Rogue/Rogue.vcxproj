@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EndEnemy.cpp" />
+    <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MapLevel.cpp" />
@@ -74,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EndEnemy.h" />
+    <ClInclude Include="Floor.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="MapLevel.h" />
     <ClInclude Include="Opponent.h" />
