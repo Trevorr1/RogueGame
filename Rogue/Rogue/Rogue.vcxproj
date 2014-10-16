@@ -67,7 +67,8 @@
     <ClCompile Include="EndEnemy.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="MapLevel.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Opponent.cpp" />
     <ClCompile Include="PoisonTrap.cpp" />
     <ClCompile Include="Trap.cpp" />
@@ -75,7 +76,8 @@
   <ItemGroup>
     <ClInclude Include="EndEnemy.h" />
     <ClInclude Include="Manager.h" />
-    <ClInclude Include="MapLevel.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="Opponent.h" />
     <ClInclude Include="PoisonTrap.h" />
     <ClInclude Include="Trap.h" />
