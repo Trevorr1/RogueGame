@@ -8,6 +8,6 @@ public:
 	virtual int get_level();
 
 protected:
-	int level;
+	int m_Level, m_Atk;
 };
 

@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dungeon.cpp" />
     <ClCompile Include="EndEnemy.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -76,6 +77,7 @@
     <ClCompile Include="Trap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dungeon.h" />
     <ClInclude Include="EndEnemy.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Item.h" />

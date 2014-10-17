@@ -12,9 +12,16 @@ public:
 	Room();
 	~Room();
 
-	vector<Opponent> opponents;
-
-	vector<Opponent> getOpponents();
 	void addOpponent(Opponent opponent);
+	vector<Opponent*> getOpponents();
+
+private:
+	vector<Opponent*> opponents;
+
+	Room *m_North, 
+		*m_South, 
+		*m_East, 
+		*m_West;
+
 };
 
