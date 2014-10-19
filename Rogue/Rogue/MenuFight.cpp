@@ -1,6 +1,5 @@
 #include "MenuFight.h"
 
-
 MenuFight::MenuFight()
 {
 	printf("In MenuFight state \n");
