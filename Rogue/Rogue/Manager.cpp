@@ -9,11 +9,12 @@ Manager::Manager()
 	addMapLevel(room);
 
 	Opponent* opponent = new Opponent();
-	room->addOpponent(*opponent);
+	room->addOpponent(opponent);
 
 	//printf("\nHello World\n\n");
+	int foo = room->getOpponents().at(0)->get_level();
 	
-	cout << room->getOpponents().at(0).get_level();
+	cout << foo;
 
 	
 }

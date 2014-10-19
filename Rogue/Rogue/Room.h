@@ -12,7 +12,7 @@ public:
 	Room();
 	~Room();
 
-	void addOpponent(Opponent opponent);
+	void addOpponent(Opponent* opponent);
 	vector<Opponent*> getOpponents();
 
 private:

@@ -10,10 +10,10 @@ Room::~Room()
 {
 }
 
-vector<Opponent> Room::getOpponents(){
+vector<Opponent*> Room::getOpponents(){
 	return opponents;
 }
 
-void Room::addOpponent(Opponent opponent){
+void Room::addOpponent(Opponent* opponent){
 	opponents.push_back(opponent);
 }
