@@ -39,3 +39,11 @@ void Player::printStats()
 {
 	// some fancy display for the stats
 }
+
+void Player::setState(Menu* state){
+	this->state = state;
+}
+
+Menu* Player::getState(){
+	return state;
+}
