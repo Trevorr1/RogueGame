@@ -1,4 +1,7 @@
 #pragma once
+
+#define DUNGEON_SIZE 10
+
 #include "Floor.h"
 #include <vector>
 
@@ -8,7 +11,9 @@ public:
 	Dungeon();
 	virtual ~Dungeon();
 
+	void buildFloors();
+
 private:
-	vector<Floor*> *m_Floors;
+	vector<Floor*> m_Floors;
 };
 

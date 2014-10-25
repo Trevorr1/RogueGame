@@ -13,7 +13,24 @@ public:
 	Floor();
 	virtual ~Floor();
 
+	void generateRooms(Room* roomAbove, bool last);
+	void updateMap();
+	void printFloor();
+
+	void setStairUp(Room* up);
+	void setStairDown(Room* down);
+
+	Room* getStairUp();
+	Room* getStairDown();
+
+
 private:
-	Room* rooms[SIZE][SIZE];
+	Room* m_Rooms[SIZE][SIZE];
+	Room* m_StairDown;
+	Room* m_StairUp;
+
+	char* m_Map[(SIZE * 2)][(SIZE * 2)];
+
+
 };
 
