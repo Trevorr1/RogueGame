@@ -11,9 +11,16 @@ public:
 	Dungeon();
 	virtual ~Dungeon();
 
-	void buildFloors();
+	void setCurrentFloor(Floor* current);
+	void setCurrentRoom(Room* current);
+
+	Floor* getCurrentFloor();
+	Room* getCurrentRoom();
 
 private:
 	vector<Floor*> m_Floors;
+
+	Floor* m_CurrentFloor;
+	Room* m_CurrentRoom;
 };
 

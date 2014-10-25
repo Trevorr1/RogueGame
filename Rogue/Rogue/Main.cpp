@@ -7,12 +7,13 @@
 #include "MenuFight.h"
 #include "Menu.h"
 #include "MenuRoom.h"
+#include "Floor.h"
 
 using namespace std;
 
 int main(int argc, const char* argv[])
 {
-	printf("\nHello World\n\n");
+	/*printf("\nHello World\n\n");
 
 	Manager*  manager = new Manager();
 
@@ -30,6 +31,13 @@ int main(int argc, const char* argv[])
 		cin >> input;
 		cout << "The value you entered is " << input;
 		player->getState()->handleInput(input);
-	}
+	}*/
 
+	Floor* floor = new Floor;
+	floor->generateRooms(nullptr, false);
+	floor->updateMap();
+	floor->printFloor();
+	string input;
+	cout << "press enter to exit...";
+	cin >> input;
 }

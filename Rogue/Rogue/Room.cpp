@@ -13,10 +13,10 @@ char* Room::printRoom()
 {
 	if (m_startPoint)
 		return "S";
-	if (m_EndPoint)
-		return "E";
 	if (m_Visited)
 	{
+		if (m_EndPoint)
+			return "E";
 		if (m_StairUp != nullptr)
 			return "H";
 		if (m_StairDown != nullptr)
@@ -43,6 +43,16 @@ void Room::addTrait(string trait)
 void Room::setVisited()
 {
 	m_Visited = true;
+}
+
+void Room::setStart()
+{
+	m_startPoint = true;
+}
+
+void Room::setEnd()
+{
+	m_EndPoint = true;
 }
 
 void Room::setNorth(Room* north)
