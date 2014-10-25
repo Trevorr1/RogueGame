@@ -18,6 +18,9 @@ public:
 	void addTrait(string trait);
 
 	void setVisited();
+	void setStart();
+	void setEnd();
+
 	void setNorth(Room* north);
 	void setEast(Room* east);
 	void setWest(Room* west);

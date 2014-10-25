@@ -26,12 +26,32 @@ Dungeon::Dungeon()
 	}
 }
 
-
 Dungeon::~Dungeon()
 {
 	for (vector<Floor*>::iterator it = m_Floors.begin(); it != m_Floors.end(); it++)
 		delete (*it);
 }
+
+void Dungeon::setCurrentFloor(Floor* current)
+{
+	m_CurrentFloor = current;
+}
+
+void Dungeon::setCurrentRoom(Room* current)
+{
+	m_CurrentRoom = current;
+}
+
+Floor* Dungeon::getCurrentFloor()
+{
+	return m_CurrentFloor;
+}
+
+Room* Dungeon::getCurrentRoom()
+{
+	return m_CurrentRoom;
+}
+
 
 void Dungeon::save(vector <string *> vectorSave){
 	//pusback the members to the vectorSave

@@ -1,13 +1,18 @@
 #pragma once
+
+#include <string>
+
 class Opponent
 {
 public:
-	Opponent();// (int a);
+	Opponent();
 	virtual~Opponent();
 
-	virtual int get_level();
+	int get_level();
 
-protected:
-	int m_Level, m_Atk;
+private:
+	int m_Level, m_Atk, m_Health, m_Def, m_Gains;
+	string m_Name;
+
 };
 

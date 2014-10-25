@@ -6,13 +6,13 @@
 #include "MenuFight.h"
 #include "Menu.h"
 #include "MenuRoom.h"
+#include "Floor.h"
 
 using namespace std;
 
-
 int main(int argc, const char* argv[])
 {
-	printf("\nHello World\n\n");
+	/*printf("\nHello World\n\n");
 
 	Manager*  manager = new Manager();
 	MenuRoom* menuRoom = new MenuRoom();
@@ -35,6 +35,12 @@ int main(int argc, const char* argv[])
 
 	}
 
-
+	Floor* floor = new Floor;
+	floor->generateRooms(nullptr, false);
+	floor->updateMap();
+	floor->printFloor();
+	string input;
+	cout << "press enter to exit...";
+	cin >> input;
 }
 
