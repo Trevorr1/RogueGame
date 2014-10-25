@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, const char* argv[])
 {
-	/*printf("\nHello World\n\n");
+	/*printf("\nHello World\n\n"); */
 
 	Manager*  manager = new Manager();
 	MenuRoom* menuRoom = new MenuRoom();
