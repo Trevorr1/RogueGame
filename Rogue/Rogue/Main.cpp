@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "Manager.h"
 #include <chrono>
 #include <thread>
@@ -10,15 +9,18 @@
 
 using namespace std;
 
+
 int main(int argc, const char* argv[])
 {
 	printf("\nHello World\n\n");
 
 	Manager*  manager = new Manager();
-
 	MenuRoom* menuRoom = new MenuRoom();
 	Player* player = new Player();
-	player->setState(menuRoom);
+	manager->setState(menuRoom);
+	
+	manager->load();
+
 
 	while (true){
 		chrono::milliseconds dura(2000);
@@ -28,8 +30,11 @@ int main(int argc, const char* argv[])
 		string input;
 		cout << "Please enter an string value: ";
 		cin >> input;
-		cout << "The value you entered is " << input;
-		player->getState()->handleInput(input);
+		cout << "The value you entered is " << input << endl;
+		manager->getState()->handleInput(input);
+
 	}
 
+
 }
+

@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include "Item.h"
-#include "Menu.h"
 
 using namespace std;
 
@@ -15,8 +14,6 @@ public:
 	void lvlUp(int exp);
 	void pickUp(Item* item);
 	void printStats();
-	void setState(Menu* state);
-	Menu* getState();
 
 private:
 	string m_Name;
@@ -27,6 +24,5 @@ private:
 	int m_Def;
 	int m_Awareness;
 	vector<Item*> *m_Inventory;
-	Menu* state;
 
 };

@@ -32,3 +32,12 @@ Dungeon::~Dungeon()
 	for (vector<Floor*>::iterator it = m_Floors.begin(); it != m_Floors.end(); it++)
 		delete (*it);
 }
+
+void Dungeon::save(vector <string *> vectorSave){
+	//pusback the members to the vectorSave
+
+	//save the floors
+	for (auto id : m_Floors){
+		id->save(vectorSave);
+	}
+}

@@ -120,7 +120,7 @@ void Floor::updateMap()
 	{
 		for (int column = 0; column < SIZE; column++)
 		{
-			m_Map[rows * 2][column * 2] = m_Rooms[rows][column]->printRoom;
+			m_Map[rows * 2][column * 2] = m_Rooms[rows][column]->printRoom();
 			if (m_Rooms[rows][column]->getVisited())
 			{
 				if (m_Rooms[rows][column]->getNorth() != nullptr)
@@ -165,4 +165,8 @@ Room* Floor::getStairUp()
 Room* Floor::getStairDown()
 {
 	return m_StairDown;
+}
+
+void Floor::save(vector <string *> vectorSave){
+	//pusback the members to the vectorSave
 }

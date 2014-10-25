@@ -13,6 +13,8 @@ public:
 
 	void buildFloors();
 
+	void save(vector <string *> vectorSave);
+
 private:
 	vector<Floor*> m_Floors;
 };
