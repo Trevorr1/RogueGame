@@ -1,0 +1,4 @@
+10 0.38765 5 42
+Dit is een regel tekst.
+En dit is er nog een.
+42
