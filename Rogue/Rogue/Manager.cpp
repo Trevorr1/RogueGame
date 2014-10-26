@@ -105,25 +105,23 @@ void Manager::loadFileAllOpponents(vector<Opponent*>* VectorOpponents){
 	ifstream input_file(textFileClass); // stack-based file object; deze constructie opent de file voor lezen
 	string line;
 
-	Opponent* op = new Opponent();
 	vector <string>* vectorLoaded = new vector<string>;
+	Opponent* op = nullptr;
 
 	int i = 1;
-	// getline() leest een regel die eindigt in een \n
-	// (je kunt ook een 3e param meegeven als je een ander 'regeleinde' wil gebruiken)
+	
 	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
 		string level= "level";
 		level += to_string(i) + ":";
+			cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
 
 		if (line != level){
-			//cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
 			vectorLoaded->push_back(line);
 		}
 		else {
 			//cout << "gevonden"<< endl;
-			delete op;
-			op = new Opponent();
 			if (i != 1){
+				op = new Opponent();
 				op->setOpponent(vectorLoaded);
 				VectorOpponents->push_back(op);
 			}
@@ -132,10 +130,13 @@ void Manager::loadFileAllOpponents(vector<Opponent*>* VectorOpponents){
 			vectorLoaded = new vector<string>;
 			i++;
 		}
+	
+		if (input_file.eof()){
+			op = new Opponent();
+			op->setOpponent(vectorLoaded);
+			VectorOpponents->push_back(op);
+		}
 	}
-
-	op->setOpponent(vectorLoaded);
-	VectorOpponents->push_back(op);
 
 	delete vectorLoaded;
 
