@@ -53,7 +53,7 @@ Room* Dungeon::getCurrentRoom()
 }
 
 
-void Dungeon::save(vector <string *> vectorSave){
+void Dungeon::save(vector <string*>* vectorSave){
 	//pusback the members to the vectorSave
 
 	//save the floors

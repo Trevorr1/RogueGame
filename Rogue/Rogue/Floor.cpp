@@ -285,6 +285,6 @@ Room* Floor::getStairDown()
 	return m_StairDown;
 }
 
-void Floor::save(vector <string *> vectorSave){
+void Floor::save(vector <string *>* vectorSave){
 	//pusback the members to the vectorSave
 }

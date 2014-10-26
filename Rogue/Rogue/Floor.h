@@ -23,7 +23,7 @@ public:
 	Room* getStairUp();
 	Room* getStairDown();
 
-	void save(vector <string*> vectorSave);
+	void save(vector <string*>* vectorSave);
 
 
 private:

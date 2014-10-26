@@ -36,11 +36,11 @@ public:
 
 	bool getVisited();
 
-	vector<Opponent*> getOpponents();
+	vector<Opponent*>* getOpponents();
 
 private:
 	vector<string*> m_Traits;
-	vector<Opponent*> opponents;
+	vector<Opponent*>* opponents;
 
 	Room *m_North, 
 		*m_South, 

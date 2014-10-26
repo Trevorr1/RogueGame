@@ -19,7 +19,7 @@ int main(int argc, const char* argv[])
 	Player* player = new Player();
 	manager->setState(menuRoom);
 	
-	manager->load();
+	manager->loadAll();
 
 
 	while (true){

@@ -2,6 +2,7 @@
 
 Room::Room()
 {
+	opponents = new vector<Opponent*>;
 }
 
 
@@ -27,10 +28,10 @@ char* Room::printRoom()
 }
 
 void Room::addOpponent(Opponent* opponent){
-	opponents.push_back(opponent);
+	//opponents.push_back(opponent);
 }
 
-vector<Opponent*> Room::getOpponents(){
+vector<Opponent*>* Room::getOpponents(){
 	return opponents;
 }
 

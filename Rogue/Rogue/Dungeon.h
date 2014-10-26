@@ -17,7 +17,7 @@ public:
 	Floor* getCurrentFloor();
 	Room* getCurrentRoom();
 
-	void save(vector <string *> vectorSave);
+	void save(vector <string *>* vectorSave);
 
 private:
 	vector<Floor*> m_Floors;

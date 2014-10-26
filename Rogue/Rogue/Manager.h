@@ -22,14 +22,20 @@ public:
 	void setState(Menu* menu);
 	Menu* getState();
 
-	void save();
-	void load();
+	void saveAll();
+	void loadAll();
+
+	void saveFile(vector <string>* vectorToSave, string textFileClass);
+	vector <string>* loadFile(string textFileClass);
+	void loadFileAllOpponents(vector <Opponent*>* vectorOpponents);
 
 private:
 	Menu* state;
 	Dungeon* dungeon;
+	//test Opponent
+	Opponent* opponent;
 
 	string textfile;
-	vector <string*> vectorSave;
+	vector <string*>* vectorSave;
 };
 
