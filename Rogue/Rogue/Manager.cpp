@@ -89,7 +89,7 @@ vector<string>* Manager::loadFile(string textFileClass){
 	// getline() leest een regel die eindigt in een \n
 	// (je kunt ook een 3e param meegeven als je een ander 'regeleinde' wil gebruiken)
 	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
-		cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
+		//cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
 		vectorLoaded->push_back(line);
 	}
 	// zodra input_file weer uit scope raakt (aan het eind van dit block) wordt de file automatisch gesloten
@@ -113,9 +113,10 @@ void Manager::loadFileAllOpponents(vector<Opponent*>* VectorOpponents){
 	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
 		string level= "level";
 		level += to_string(i) + ":";
-			cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
+			//cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
 
-		if (line != level){
+		if (line.find("level")){
+		//if (line != level){
 			vectorLoaded->push_back(line);
 		}
 		else {
