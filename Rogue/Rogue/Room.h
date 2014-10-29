@@ -36,6 +36,8 @@ public:
 
 	bool getVisited();
 
+	void setRoom(vector <string>* vectorLoaded);
+
 	vector<Opponent*>* getOpponents();
 
 private:
@@ -54,5 +56,10 @@ private:
 		m_startPoint,
 		m_EndPoint;
 
+	string m_Size;
+	string m_State;
+	string m_Illumation;
+	string m_Shape;
+	string m_Content;
 };
 

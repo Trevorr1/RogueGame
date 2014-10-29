@@ -28,6 +28,7 @@ public:
 	void saveFile(vector <string>* vectorToSave, string textFileClass);
 	vector <string>* loadFile(string textFileClass);
 	void loadFileAllOpponents(vector <Opponent*>* vectorOpponents);
+	Room* loadFileRandomRoom();
 
 private:
 	Menu* state;

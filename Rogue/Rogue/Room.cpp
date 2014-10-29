@@ -110,3 +110,11 @@ bool Room::getVisited()
 {
 	return m_Visited;
 }
+
+void Room::setRoom(vector <string>* vectorLoaded){
+	m_Size = vectorLoaded->at(0);
+	m_State = vectorLoaded->at(1);
+	m_Illumation = vectorLoaded->at(2);
+	m_Shape = vectorLoaded->at(3);
+	m_Content = vectorLoaded->at(4);
+}
