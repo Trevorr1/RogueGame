@@ -1,5 +1,6 @@
 #pragma once
 #include "Menu.h"
+#include "Room.h"
 
 class MenuRoom :
 	public Menu
@@ -16,6 +17,8 @@ public:
 	void inventory();
 	void map();
 	void characterInfo();
+
+
 	//Optional:
 	//void save();
 	//void load();

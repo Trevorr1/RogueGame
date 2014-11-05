@@ -3,11 +3,22 @@
 #include <string>
 
 using namespace std;
+
 MenuRoom::MenuRoom()
 {
-	printf("In MenuRoom state \n");
+	m_Text = "You're in a ";
+
+	m_Options.push_back("fight");
+	m_Options.push_back("run");
+	m_Options.push_back("search");
+	m_Options.push_back("rest");
+	m_Options.push_back("items");
+	m_Options.push_back("map");
+	
+	// old code
+	/*printf("In MenuRoom state \n");
 	printf("Je staat in kamer met in het midden een tafel met...\n");
-	printf("vecht | vlucht | zoek | rust... \n");
+	printf("vecht | vlucht | zoek | rust... \n");*/
 }
 
 
@@ -34,8 +45,6 @@ void MenuRoom::handleInput(string input){
 	else{
 		printf("Probeer het nog eens! \n");
 	}
-
-
 }
 
 void MenuRoom::fight(){

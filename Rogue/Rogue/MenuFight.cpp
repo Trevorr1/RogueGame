@@ -27,6 +27,7 @@ void MenuFight::handleInput(string input){
 void MenuFight::attack(){
 
 }
+
 void MenuFight::flee(){
 
 }

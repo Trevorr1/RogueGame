@@ -72,6 +72,7 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuFight.cpp" />
+    <ClCompile Include="MenuFlight.cpp" />
     <ClCompile Include="MenuRoom.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuFight.h" />
+    <ClInclude Include="MenuFlight.h" />
     <ClInclude Include="MenuRoom.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />

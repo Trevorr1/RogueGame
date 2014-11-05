@@ -23,15 +23,8 @@ void Loader::loadRoomTraits()
 {
 	string textFile("Rooms.txt");
 
-	// (2a) Tekst inlezen uit een file met de klasse std::ifstream (input file stream)
-	ifstream input_file(textFile); // stack-based file object; deze constructie opent de file voor lezen
+	ifstream input_file(textFile); 
 	string line;
-/*
-	vector <string>* vectorLoaded = new vector < string > ;
-	vector <string>* vectorRandomized = new vector < string > ;
-	Room* room = new Room();
-	int i = 0;*/
-	//srand(time(0));
 
 	int i = 0;
 
@@ -62,34 +55,8 @@ void Loader::loadRoomTraits()
 		{
 			room_specialTraits.push_back(line);
 		}
-
-		//	//if line contains == true
-		//	if (line.find(vectorRoomKinds.at(i)) != std::string::npos){
-		//		if (i != 0){
-		//			int randItem = rand() % vectorLoaded->size();
-		//			vectorRandomized->push_back(vectorLoaded->at(randItem));
-
-		//			delete vectorLoaded;
-		//			vectorLoaded = new vector<string>;
-		//		}
-		//		if (i < vectorRoomKinds.size() - 1){
-		//			i++;
-		//		}
-		//	}
-		//	else {
-		//		vectorLoaded->push_back(line);
-		//	}
-
-		//	if (input_file.eof()){
-		//		int randItem = rand() % vectorLoaded->size();
-		//		vectorRandomized->push_back(vectorLoaded->at(randItem));
-		//	}
-		//}
-
 		cout << "Loading Room Traits" << endl;
-
 	}
-	int foo = 0;
 }
 void Loader::loadEnemyList()
 {

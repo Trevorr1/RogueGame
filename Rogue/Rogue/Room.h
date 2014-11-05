@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Opponent.h"
+#include "Trap.h"
 #include <iostream>
 #include <vector>
 
@@ -63,5 +64,7 @@ private:
 	string m_Shape;
 	string m_Content;
 	string m_Special;
+
+	Trap* m_Trap;
 };
 
