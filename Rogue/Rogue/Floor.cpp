@@ -24,11 +24,16 @@ Floor::Floor()
 
 Floor::Floor(int rseed)
 {
+	//Dit wordt 10x aangeroepen adhv size in Dungeon. Liever 1x aanroepen of 1x meegeven in Floor(Loader loader, int rseed)
+	loader = new Loader();
+	loader->loadRoomTraits();
+
 	for (int rows = 0; rows < SIZE; rows++)
 	{
 		for (int column = 0; column < SIZE; column++)
 		{
-			m_Rooms[rows][column] = new Room(rseed);
+			//m_Rooms[rows][column] = new Room(rseed);
+			m_Rooms[rows][column] = generateRoom(rseed);
 		}
 	}
 
@@ -45,6 +50,27 @@ Floor::Floor(int rseed)
 Floor::~Floor()
 {
 	delete[] m_Rooms;
+}
+
+Room* Floor::generateRoom(int rseed){
+	//srand(rseed); //rseed is handig wanneer je 1 random object wil. Maar deze methode wordt 100x per floor aangeroepen.
+	Room* room = new Room();
+
+	string size = loader->getRoom_sizes()->at(rand() % loader->getRoom_sizes()->size());
+	string state = loader->getRoom_states()->at(rand() % loader->getRoom_states()->size());
+	string illumation = loader->getRoom_lightings()->at(rand() % loader->getRoom_lightings()->size());
+	string shape = loader->getRoom_shapes()->at(rand() % loader->getRoom_shapes()->size());
+	string content = loader->getRoom_contents()->at(rand() % loader->getRoom_contents()->size());
+	string special = loader->getRoom_specialTraits()->at(rand() % loader->getRoom_specialTraits()->size());
+
+	room->addTrait(size);
+	room->addTrait(state);
+	room->addTrait(illumation);
+	room->addTrait(shape);
+	room->addTrait(content);
+	room->addTrait(special);
+
+	return room;
 }
 
 void Floor::generateRooms(Room* roomAbove, bool last)

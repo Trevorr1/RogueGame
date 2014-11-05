@@ -18,6 +18,13 @@ public:
 	void loadEnemyList();
 	void loadItemList();
 
+	vector<string>* getRoom_sizes(){ return room_sizes; };
+	vector<string>* getRoom_states(){ return room_states; };
+	vector<string>* getRoom_lightings(){ return room_lightings; };
+	vector<string>* getRoom_shapes(){ return room_shapes; };
+	vector<string>* getRoom_contents(){ return room_contents; };
+	vector<string>* getRoom_specialTraits(){ return room_specialTraits; };
+
 private:
 	vector <string> vectorRoomKinds;
 	vector<string>* room_sizes;

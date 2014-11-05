@@ -3,6 +3,7 @@
 #define SIZE 10
 
 #include "Room.h"
+#include "Loader.h"
 #include <vector>
 
 using namespace std;
@@ -14,6 +15,7 @@ public:
 	Floor(int rseed);
 	virtual ~Floor();
 
+	Room* generateRoom(int rseed);
 	void generateRooms(Room* roomAbove, bool last);
 	void updateMap();
 	void printFloor();
@@ -28,6 +30,8 @@ public:
 
 
 private:
+	Loader* loader;
+
 	Room* m_Rooms[SIZE][SIZE];
 	Room* m_StairDown;
 	Room* m_StairUp;

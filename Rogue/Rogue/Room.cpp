@@ -42,7 +42,7 @@ vector<Opponent*>* Room::getOpponents(){
 
 void Room::addTrait(string trait)
 {
-	m_Traits.push_back(&trait);
+	m_Traits.push_back(trait);
 }
 
 
