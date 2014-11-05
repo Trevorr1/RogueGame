@@ -2,7 +2,7 @@ room_size:
 big
 medium
 small
-tinge
+huge
 room_state:
 trashed
 ordered
@@ -10,14 +10,14 @@ blood all over
 room_illumation:
 dark
 lit by candle light
-lit by chireney
+lit by chimeney
 lit by magic
 room_shape:
 round
 hollow
 cubed
 room_content:
-empty with nothing in it
+with nothing in it
 with a table in the middle
 with a chair in the corner
 with an empty chest in the middle
@@ -25,3 +25,6 @@ with a table with few chairs in middle
 with many books laying about
 filled with corpses
 filled wit broken weapons and shields
+room_special_trait:
+seems quite normal, nothing special here.
+spirits still seem to linger here...

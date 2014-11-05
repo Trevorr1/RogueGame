@@ -5,6 +5,11 @@ Room::Room()
 	opponents = new vector<Opponent*>;
 }
 
+Room::Room(int rseed)
+{
+
+}
+
 
 Room::~Room()
 {
@@ -117,4 +122,5 @@ void Room::setRoom(vector <string>* vectorLoaded){
 	m_Illumation = vectorLoaded->at(2);
 	m_Shape = vectorLoaded->at(3);
 	m_Content = vectorLoaded->at(4);
+	m_Special = vectorLoaded->at(5);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#define DUNGEON_SIZE 10
+#define DUNGEON_SIZE 20
 
 #include "Floor.h"
 #include <vector>
@@ -9,6 +9,7 @@ class Dungeon
 {
 public:
 	Dungeon();
+	Dungeon(int rseed);
 	virtual ~Dungeon();
 
 	void setCurrentFloor(Floor* current);

@@ -8,6 +8,7 @@
 #include "Opponent.h"
 #include "Room.h"
 #include "Menu.h"
+#include "Loader.h"
 
 class Manager
 {

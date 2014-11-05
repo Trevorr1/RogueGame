@@ -8,12 +8,16 @@ Manager::Manager()
 {
 	textfile = "data_save.txt";
 
-	dungeon = new Dungeon();
+	int rseed = 5;
+
+	dungeon = new Dungeon(5);
 	Room* room = new Room();
 	addMapLevel(room);
 
 	opponent = new Opponent();
 	room->addOpponent(opponent);
+
+	Loader* loader = new Loader();
 
 	/*vector <string>* vectorTestOpponent = new vector<string>;
 	vectorTestOpponent->push_back("1");
@@ -157,19 +161,22 @@ Room* Manager::loadFileRandomRoom(){
 	vectorRoomKinds->push_back("room_illumation");
 	vectorRoomKinds->push_back("room_shape");
 	vectorRoomKinds->push_back("room_content");
+	vectorRoomKinds->push_back("room_special_trait");
 
 	vector <string>* vectorLoaded = new vector<string>;
 	vector <string>* vectorRandomized = new vector<string>;
 	Room* room = new Room();
 	int i = 0;
-	srand(time(0));
+	//srand(time(0));
 
 	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
 		//cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
 
 		//if line contains == true
-		if (line.find(vectorRoomKinds->at(i)) != std::string::npos){
-			if (i != 0){
+		if (line.find(vectorRoomKinds->at(i)) != std::string::npos)
+		{
+			if (i != 0)
+			{
 				int randItem = rand() % vectorLoaded->size();
 				vectorRandomized->push_back(vectorLoaded->at(randItem));
 

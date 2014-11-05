@@ -10,6 +10,7 @@ class Room
 {
 public:
 	Room();
+	Room(int rseed);
 	~Room();
 
 	char* printRoom();
@@ -61,5 +62,6 @@ private:
 	string m_Illumation;
 	string m_Shape;
 	string m_Content;
+	string m_Special;
 };
 

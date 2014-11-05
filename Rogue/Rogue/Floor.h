@@ -11,6 +11,7 @@ class Floor
 {
 public:
 	Floor();
+	Floor(int rseed);
 	virtual ~Floor();
 
 	void generateRooms(Room* roomAbove, bool last);

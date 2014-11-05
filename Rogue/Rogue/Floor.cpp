@@ -17,9 +17,28 @@ Floor::Floor()
 		for (int column = 0; column < (SIZE * 2); column++)
 		{
 			m_Map[rows][column] = " ";
-}
+		}
 	}
 
+}
+
+Floor::Floor(int rseed)
+{
+	for (int rows = 0; rows < SIZE; rows++)
+	{
+		for (int column = 0; column < SIZE; column++)
+		{
+			m_Rooms[rows][column] = new Room(rseed);
+		}
+	}
+
+	for (int rows = 0; rows < (SIZE * 2); rows++)
+	{
+		for (int column = 0; column < (SIZE * 2); column++)
+		{
+			m_Map[rows][column] = " ";
+		}
+	}
 }
 
 
@@ -39,7 +58,6 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 	{
 		for (int column = 0; column < SIZE; column++)
 		{
-
 			int randomNr = rand() % 101;
 
 			if (!above && roomAbove != nullptr && randomNr > 45)
@@ -176,31 +194,31 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 					}
 					else if (southok)
 					{
-					m_Rooms[south][column]->setNorth(m_Rooms[rows][column]);
-					m_Rooms[rows][column]->setSouth(m_Rooms[south][column]);
-				}
+						m_Rooms[south][column]->setNorth(m_Rooms[rows][column]);
+						m_Rooms[rows][column]->setSouth(m_Rooms[south][column]);
+					}
 					break;
 				case 2:
 					if (eastok)
 					{
 						m_Rooms[rows][east]->setWest(m_Rooms[rows][column]);
 						m_Rooms[rows][column]->setEast(m_Rooms[rows][east]);
-			}
+					}
 					else if (westok)
 					{
 						m_Rooms[rows][west]->setEast(m_Rooms[rows][column]);
 						m_Rooms[rows][column]->setWest(m_Rooms[rows][west]);
-		}
+					}
 					else if (northok)
 					{
 						m_Rooms[north][column]->setSouth(m_Rooms[rows][column]);
 						m_Rooms[rows][column]->setNorth(m_Rooms[north][column]);
-	}
+					}
 					else if (southok)
 					{
 						m_Rooms[south][column]->setNorth(m_Rooms[rows][column]);
 						m_Rooms[rows][column]->setSouth(m_Rooms[south][column]);
-}
+					}
 					break;
 				case 3:
 					if (southok)
@@ -255,7 +273,7 @@ void Floor::updateMap()
 				{
 					m_Map[(rows * 2) + 1][column * 2] = "|";
 				}
-				
+
 			}
 		}
 	}
@@ -264,9 +282,9 @@ void Floor::updateMap()
 
 void Floor::printFloor()
 {
-	for (int rows = 0; rows < (SIZE*2); rows++)
+	for (int rows = 0; rows < (SIZE * 2); rows++)
 	{
-		for (int column = 0; column < (SIZE*2); column++)
+		for (int column = 0; column < (SIZE * 2); column++)
 		{
 			cout << m_Map[rows][column];
 		}

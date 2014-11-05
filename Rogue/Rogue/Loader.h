@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "Room.h"
 
 using namespace std;
 
@@ -17,7 +18,10 @@ public:
 	void loadEnemyList();
 	void loadItemList();
 
+	Room* loadFileRandomRoom();
+
 private:
+	vector <string> vectorRoomKinds;
 	vector<string> room_sizes;
 	vector<string> room_states;
 	vector<string> room_shapes;
