@@ -5,6 +5,8 @@
 #include "PoisonTrap.h"
 #include <iostream>
 #include <vector>
+//#include "LoaderManager.h"
+
 
 using namespace std;
 
@@ -12,7 +14,7 @@ class Room
 {
 public:
 	Room();
-	Room(int rseed);
+	Room(int level, int rseed);
 	~Room();
 
 	char* printRoom();

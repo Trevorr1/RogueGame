@@ -1,6 +1,5 @@
 #include "Loader.h"
 
-
 Loader::Loader()
 {
 	// rooms trait init
@@ -28,7 +27,6 @@ Loader::Loader()
 	vectorTrapKinds.push_back("leghold_trap");
 
 	traps = new vector<Trap*>;
-	//trap_poison = new vector<PoisonTrap*>;
 
 	opponents = new vector <Opponent*>;
 
@@ -36,9 +34,23 @@ Loader::Loader()
 	loadFileOpponents();
 }
 
-
 Loader::~Loader()
 {
+	//delete vectorRoomKinds;
+	delete room_sizes;
+	delete room_states;
+	delete room_lightings;
+	delete room_shapes;
+	delete room_contents;
+	delete room_specialTraits;
+
+	//delete vectorTrapKinds;
+	delete traps;
+	delete trap_poison;
+
+	delete opponents;
+
+	//delete item_list;
 }
 
 void Loader::loadEnemyList()

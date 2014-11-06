@@ -22,18 +22,21 @@ Floor::Floor()
 
 }
 
-Floor::Floor(int rseed)
+Floor::Floor(int level, int rseed)
 {
-	//Dit wordt 10x aangeroepen adhv size in Dungeon. Liever 1x aanroepen of 1x meegeven in Floor(Loader loader, int rseed)
-	loader = new Loader();
+	//Dit wordt 20x aangeroepen adhv size in Dungeon. Liever 1x aanroepen of 1x meegeven in Floor(Loader loader, int rseed)
+	//loader = new Loader();
 	//loader->loadRoomTraits(); //wordt al in Loader aangeroepen
+
+	//Update: Loader is 1x aangemaakt, loader wordt nu via singleton LoaderManager opgehaald.
+	loader = LoaderManager::getInstance()->getLoader();
 
 	for (int rows = 0; rows < SIZE; rows++)
 	{
 		for (int column = 0; column < SIZE; column++)
 		{
 			//m_Rooms[rows][column] = new Room(rseed);
-			m_Rooms[rows][column] = generateRoom(rseed);
+			m_Rooms[rows][column] = generateRoom(level, rseed);
 		}
 	}
 
@@ -52,9 +55,9 @@ Floor::~Floor()
 	delete[] m_Rooms;
 }
 
-Room* Floor::generateRoom(int rseed){
+Room* Floor::generateRoom(int level, int rseed){
 	//srand(rseed); //rseed is handig wanneer je 1 random object wil. Maar deze methode wordt 100x per floor aangeroepen.
-	Room* room = new Room();
+	Room* room = new Room(level, rseed);
 
 	string size = loader->getRoom_sizes()->at(rand() % loader->getRoom_sizes()->size());
 	string state = loader->getRoom_states()->at(rand() % loader->getRoom_states()->size());

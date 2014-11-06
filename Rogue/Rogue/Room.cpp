@@ -5,8 +5,12 @@ Room::Room()
 	opponents = new vector<Opponent*>;
 }
 
-Room::Room(int rseed)
+Room::Room(int level, int rseed)
 {
+	opponents = new vector<Opponent*>;
+	//TODO make opponents based on floor level.
+	//LoaderManager::getInstance()->getLoader();
+
 
 }
 

@@ -68,6 +68,7 @@
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="LoaderManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="LoaderManager.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuFight.h" />
