@@ -4,7 +4,9 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include "Room.h"
+#include "Trap.h"
+#include "Opponent.h"
+#include "PoisonTrap.h"
 
 using namespace std;
 
@@ -19,6 +21,8 @@ public:
 	void loadEnemyList();
 	void loadItemList();
 	void loadFileOpponents();
+
+	vector<Opponent*>* getOpponents(){ return opponents; };
 
 	vector<string>* getRoom_sizes(){ return room_sizes; };
 	vector<string>* getRoom_states(){ return room_states; };

@@ -1,11 +1,11 @@
 #pragma once
-
+#include "LoaderManager.h"
 #include "Opponent.h"
 #include "Trap.h"
 #include "PoisonTrap.h"
 #include <iostream>
 #include <vector>
-//#include "LoaderManager.h"
+
 
 
 using namespace std;
@@ -21,6 +21,8 @@ public:
 
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);
+
+	void generateOpponents(int level);
 
 	void setVisited();
 	void setStart();

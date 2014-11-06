@@ -9,14 +9,14 @@ Room::Room(int level, int rseed)
 {
 	opponents = new vector<Opponent*>;
 	//TODO make opponents based on floor level.
-	//LoaderManager::getInstance()->getLoader();
-
-
+	LoaderManager::getInstance()->getLoader();
+	generateOpponents(level);
 }
 
 
 Room::~Room()
 {
+	delete opponents;
 }
 
 char* Room::printRoom()
@@ -37,11 +37,53 @@ char* Room::printRoom()
 }
 
 void Room::addOpponent(Opponent* opponent){
-	//opponents.push_back(opponent);
+	opponents->push_back(opponent);
 }
 
 vector<Opponent*>* Room::getOpponents(){
 	return opponents;
+}
+
+void Room::generateOpponents(int level){
+	vector<Opponent*>* loaderOpponents = LoaderManager::getInstance()->getLoader()->getOpponents();
+	//based on 20 dungeon floors
+
+	level++;
+	int leveldivided = level;
+		vector<Opponent*>* randomOpponents = new vector<Opponent*>;
+		if (level <=2){
+			for (int i = 0; i < 6; i++){
+				randomOpponents->push_back(loaderOpponents->at(i));
+			}
+		}
+		else{
+			for (int i = 0; i < loaderOpponents->size(); i++){
+				/*find e.g. opponents lv 3 in floor level 6*/
+				if (loaderOpponents->at(i)->get_level() == leveldivided/2){
+					randomOpponents->push_back(loaderOpponents->at(i));
+				}
+				/*find e.g opponents lv 4 in floor level 6*/
+				if(loaderOpponents->at(i)->get_level() == leveldivided / 2+1){
+					randomOpponents->push_back(loaderOpponents->at(i));
+				}
+				
+			}
+		}
+
+		/*add random 3 opponents to opponents*/
+		if (randomOpponents->size() >=3){
+			for (int i = 0; i < 3; i++){
+				int random3 = rand() % randomOpponents->size();
+				opponents->push_back(randomOpponents->at(random3));
+			}
+		}
+		else{
+			for (int i = 0; i < randomOpponents->size(); i++){
+				opponents->push_back(randomOpponents->at(i));
+			}
+		}
+
+	delete randomOpponents;
 }
 
 void Room::addTrait(string trait)

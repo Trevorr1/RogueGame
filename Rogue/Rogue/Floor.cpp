@@ -24,10 +24,6 @@ Floor::Floor()
 
 Floor::Floor(int level, int rseed)
 {
-	//Dit wordt 20x aangeroepen adhv size in Dungeon. Liever 1x aanroepen of 1x meegeven in Floor(Loader loader, int rseed)
-	//loader = new Loader();
-	//loader->loadRoomTraits(); //wordt al in Loader aangeroepen
-
 	//Update: Loader is 1x aangemaakt, loader wordt nu via singleton LoaderManager opgehaald.
 	loader = LoaderManager::getInstance()->getLoader();
 
