@@ -15,6 +15,7 @@ public:
 	virtual ~Loader();
 
 	void loadRoomTraits();
+	void loadTraps();
 	void loadEnemyList();
 	void loadItemList();
 
@@ -33,6 +34,10 @@ private:
 	vector<string>* room_shapes;
 	vector<string>* room_contents;
 	vector<string>* room_specialTraits;
+
+	vector <string> vectorTrapKinds;
+	vector<Trap*>* traps;
+	vector<PoisonTrap*>* trap_poison;
 
 	vector<string> enemies;
 

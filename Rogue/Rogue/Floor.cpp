@@ -26,7 +26,7 @@ Floor::Floor(int rseed)
 {
 	//Dit wordt 10x aangeroepen adhv size in Dungeon. Liever 1x aanroepen of 1x meegeven in Floor(Loader loader, int rseed)
 	loader = new Loader();
-	loader->loadRoomTraits();
+	//loader->loadRoomTraits(); //wordt al in Loader aangeroepen
 
 	for (int rows = 0; rows < SIZE; rows++)
 	{

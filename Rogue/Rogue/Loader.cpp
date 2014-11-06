@@ -20,6 +20,17 @@ Loader::Loader()
 
 	loadRoomTraits();
 
+	// traps kinds
+	vectorTrapKinds.push_back("normal_trap");
+	vectorTrapKinds.push_back("poison_trap");
+	vectorTrapKinds.push_back("deadly_trap");
+	vectorTrapKinds.push_back("booby_trap");
+	vectorTrapKinds.push_back("leghold_trap");
+
+	traps = new vector<Trap*>;
+	//trap_poison = new vector<PoisonTrap*>;
+
+	loadTraps();
 }
 
 
@@ -83,4 +94,65 @@ void Loader::loadRoomTraits(){
 		}
 	}
 
+}
+
+void Loader::loadTraps(){
+	string textFileClass = "Traps.txt";
+
+	// (2a) Tekst inlezen uit een file met de klasse std::ifstream (input file stream)
+	ifstream input_file(textFileClass); // stack-based file object; deze constructie opent de file voor lezen
+	string line;
+
+	string trapKind = "";
+	int dmg = NULL;
+	int i = 0;
+	//srand(time(0));
+
+
+	while (getline(input_file, line)) {
+		bool isDmg = true;
+
+		//if line contains == true
+		for (int i = 0; i < vectorTrapKinds.size(); i++){
+			if (line.find(vectorTrapKinds.at(i)) != std::string::npos){
+				trapKind = line;
+				
+				isDmg = false;
+				break;
+			}
+		}
+
+		if (isDmg){
+			dmg = std::stoi(line);
+			//cout << dmg<< endl;
+
+			if (trapKind.find("normal_trap") != std::string::npos){
+				Trap* trap1 = new Trap("trap", dmg);
+				traps->push_back(trap1);
+			}
+			else if (trapKind.find("poison_trap") != std::string::npos){
+				/*trap_poison->push_back(new PoisonTrap());*/
+				Trap* trap1 = new Trap("poison trap", dmg);
+				traps->push_back(trap1);
+			}
+			else if (trapKind.find("deadly_trap") != std::string::npos){
+				Trap* trap1 = new Trap("deadly trap", dmg);
+				traps->push_back(trap1);
+			}
+			else if (trapKind.find("booby_trap") != std::string::npos){
+				Trap* trap1 = new Trap("booby trap", dmg);
+				traps->push_back(trap1);
+			}
+			else if (trapKind.find("leghold_trap") != std::string::npos){
+				Trap* trap1 = new Trap("leg hold trap", dmg);
+				traps->push_back(trap1);
+			}
+			trapKind.clear();
+			dmg = NULL;
+
+		}
+			
+
+		
+	}
 }

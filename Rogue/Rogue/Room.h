@@ -2,6 +2,7 @@
 
 #include "Opponent.h"
 #include "Trap.h"
+#include "PoisonTrap.h"
 #include <iostream>
 #include <vector>
 
