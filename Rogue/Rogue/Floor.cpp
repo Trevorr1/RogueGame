@@ -29,11 +29,16 @@ Floor::Floor(int level, int rseed)
 
 	for (int rows = 0; rows < SIZE; rows++)
 	{
+		
 		for (int column = 0; column < SIZE; column++)
 		{
 			//m_Rooms[rows][column] = new Room(rseed);
 			m_Rooms[rows][column] = generateRoom(level, rseed);
 		}
+
+		//Trap added to random room (10 total)
+		int randomColumn = rand() % 10; // level begint bij 0, dus niet 10+1
+		m_Rooms[rows][randomColumn]->setTrap(level);
 	}
 
 	for (int rows = 0; rows < (SIZE * 2); rows++)

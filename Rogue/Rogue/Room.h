@@ -43,6 +43,9 @@ public:
 
 	bool getVisited();
 
+	Trap* getTrap(){ return m_Trap; };
+	void setTrap(int level);
+
 	void setRoom(vector <string>* vectorLoaded);
 
 	vector<Opponent*>* getOpponents();

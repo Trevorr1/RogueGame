@@ -86,6 +86,24 @@ void Room::generateOpponents(int level){
 	delete randomOpponents;
 }
 
+void Room::setTrap(int level){
+	vector<Trap*>* traps = LoaderManager::getInstance()->getLoader()->getTraps();
+
+	if (level <= 7){
+		int randomTrap = rand() % 2;
+		m_Trap = traps->at(randomTrap);
+	}
+	else if (level <= 13){
+		int randomTrap = rand() % 2+2;
+		m_Trap = traps->at(randomTrap);
+	}
+	else if (level <= 20){
+		int randomTrap = rand() % 2+4;
+		m_Trap = traps->at(randomTrap);
+	}
+
+}
+
 void Room::addTrait(string trait)
 {
 	m_Traits.push_back(trait);

@@ -23,6 +23,7 @@ public:
 	void loadFileOpponents();
 
 	vector<Opponent*>* getOpponents(){ return opponents; };
+	vector<Trap*>* getTraps(){ return traps; };
 
 	vector<string>* getRoom_sizes(){ return room_sizes; };
 	vector<string>* getRoom_states(){ return room_states; };
