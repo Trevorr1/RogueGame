@@ -18,6 +18,7 @@ public:
 	void loadTraps();
 	void loadEnemyList();
 	void loadItemList();
+	void loadFileOpponents();
 
 	vector<string>* getRoom_sizes(){ return room_sizes; };
 	vector<string>* getRoom_states(){ return room_states; };
@@ -39,7 +40,7 @@ private:
 	vector<Trap*>* traps;
 	vector<PoisonTrap*>* trap_poison;
 
-	vector<string> enemies;
+	vector<Opponent*>* opponents;
 
 	vector<string> item_list;
 };

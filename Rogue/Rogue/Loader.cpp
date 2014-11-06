@@ -30,7 +30,10 @@ Loader::Loader()
 	traps = new vector<Trap*>;
 	//trap_poison = new vector<PoisonTrap*>;
 
+	opponents = new vector <Opponent*>;
+
 	loadTraps();
+	loadFileOpponents();
 }
 
 
@@ -149,10 +152,49 @@ void Loader::loadTraps(){
 			}
 			trapKind.clear();
 			dmg = NULL;
-
 		}
-			
-
-		
 	}
+}
+
+void Loader::loadFileOpponents(){
+	string textFileClass = "Opponents.txt";
+
+	// (2a) Tekst inlezen uit een file met de klasse std::ifstream (input file stream)
+	ifstream input_file(textFileClass); // stack-based file object; deze constructie opent de file voor lezen
+	string line;
+
+	vector <string>* vectorLoaded = new vector<string>;
+	Opponent* op = nullptr;
+
+	int i = 1;
+
+	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
+		string level = "level";
+		level += to_string(i) + ":";
+		//cout << line << '\n'; // getline() haalt de \n wel uit de stream, maar voegt die niet toe
+
+		if (line.find("level") == std::string::npos){
+			vectorLoaded->push_back(line);
+		}
+		else {
+			//cout << "gevonden"<< endl;
+			if (i != 1){
+				op = new Opponent();
+				op->setOpponent(vectorLoaded);
+				opponents->push_back(op);
+			}
+
+			delete vectorLoaded;
+			vectorLoaded = new vector<string>;
+			i++;
+		}
+
+		if (input_file.eof()){
+			op = new Opponent();
+			op->setOpponent(vectorLoaded);
+			opponents->push_back(op);
+		}
+	}
+
+	delete vectorLoaded;
 }
