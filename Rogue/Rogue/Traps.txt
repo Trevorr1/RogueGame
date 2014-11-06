@@ -1,0 +1,14 @@
+normal_trap1:
+5
+poison_trap2:
+3
+normal_trap3:
+10
+poison_trap4:
+15
+deadly_trap5:
+75
+booby_trap6:
+50
+leghold_trap7:
+60
