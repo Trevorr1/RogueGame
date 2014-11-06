@@ -83,6 +83,7 @@ void Room::generateOpponents(int level){
 			}
 		}
 
+	loaderOpponents == nullptr;
 	delete randomOpponents;
 }
 
@@ -101,7 +102,7 @@ void Room::setTrap(int level){
 		int randomTrap = rand() % 2+4;
 		m_Trap = traps->at(randomTrap);
 	}
-
+	traps == nullptr;
 }
 
 void Room::addTrait(string trait)

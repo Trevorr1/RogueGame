@@ -7,6 +7,8 @@
 #include "Trap.h"
 #include "Opponent.h"
 #include "PoisonTrap.h"
+#include "Item.h"
+
 
 using namespace std;
 
@@ -21,6 +23,7 @@ public:
 	void loadEnemyList();
 	void loadItemList();
 	void loadFileOpponents();
+	void loadFileItems();
 
 	vector<Opponent*>* getOpponents(){ return opponents; };
 	vector<Trap*>* getTraps(){ return traps; };
@@ -47,6 +50,6 @@ private:
 
 	vector<Opponent*>* opponents;
 
-	vector<string> item_list;
+	vector<Item*>* item_list;
 };
 

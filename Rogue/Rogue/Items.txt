@@ -1,0 +1,102 @@
+Biscuito
+4
+Red Potion
+89
+Uber Red Potion
+82
+Whey Shake
+32
+Mass Gainer Potion
+77
+Hyper Potion
+45
+Master Potion
+7
+Hydra Potion
+26
+Malevolent Mixture
+58
+Mandrake Restorative Draught
+42
+Manegro Potion
+70
+Maximum Turbo Farts Potion
+90
+Memory Potion
+75
+Moonseed Poison
+21
+Mopsus Potion
+20
+Mouth Itching Antidote
+61
+Muffling Draught
+60
+Murtlap Essence
+25
+Noxious Potion
+43
+Oculus Potion
+44
+Polyjuice Potion
+56
+Pepperup Potion
+83
+Poison Antidote
+47
+Polyjuice Potion
+12
+Pompion Potion
+22
+Potion N. 220
+11
+Potion No. 07
+18
+Poisonous
+29
+Potion No. 113
+47
+Potion No. 86
+62
+Potion No. 329
+97
+Quodpot solution
+29
+Rano Potion
+4
+Rat Tonic
+26
+Regeneration Potion
+35
+Regerminating Potion
+47
+Replenishing Potion
+4
+Restoration Potion
+18
+Rudimentary Body Potion
+58
+Scintillation Solution
+100
+Shrinking Solution
+33
+Sleekeazy's Hair Potion
+59
+Strength Potion
+95
+Strengthening Solution
+40
+Swelling Solution
+84
+Potionio
+30
+Wideye Potion
+11
+Wiggenweld Potion
+88
+Wit-Sharpening Potion
+49
+Wolfsbane Potion
+78
+Wound-Cleaning Potion
+59

@@ -1,4 +1,8 @@
 #include "Loader.h"
+//#include <string> 
+//#include <iostream> 
+//#include <sstream> 
+
 
 Loader::Loader()
 {
@@ -32,6 +36,9 @@ Loader::Loader()
 
 	loadTraps();
 	loadFileOpponents();
+
+	item_list = new vector<Item*>;
+	loadFileItems();
 }
 
 Loader::~Loader()
@@ -209,4 +216,38 @@ void Loader::loadFileOpponents(){
 	}
 
 	delete vectorLoaded;
+}
+
+void Loader::loadFileItems(){
+	string textFileClass = "Items.txt";
+
+	// (2a) Tekst inlezen uit een file met de klasse std::ifstream (input file stream)
+	ifstream input_file(textFileClass); // stack-based file object; deze constructie opent de file voor lezen
+	string line;
+	Item* item = nullptr;
+
+	int i = 0;
+	while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
+		//if line contains == true
+		if (line.find("potions:") != std::string::npos){
+		}
+		else if(i == 0){
+			item = new Item();
+			item->setName(line);
+			i++;
+		}
+		else if (i == 1){
+			//std::istringstream is(line);
+			//int sToi;
+			//is >> sToi;
+			//item->setHealth(sToi);
+
+			//item->setHealth(atoi(line.c_str()));
+			item->setHealth(stoi(line));
+			item_list->push_back(item);
+			cout << item->getHealth() << endl;
+
+			i = 0;
+		}
+	}
 }
