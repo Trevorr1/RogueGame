@@ -17,6 +17,8 @@ Room::Room(int level, bool endBossRoom, int rseed)
 	else{
 		generateEndOpponents(level, 2);
 	}
+
+	generateItem();
 }
 
 
@@ -235,6 +237,13 @@ void Room::setTrap(int level){
 	}
 	traps = nullptr;
 }
+
+void Room::generateItem(){
+	vector<Item*>* items = LoaderManager::getInstance()->getLoader()->getItems();
+	
+	m_Item = items->at(rand() % items->size());
+}
+
 
 void Room::addTrait(string trait)
 {

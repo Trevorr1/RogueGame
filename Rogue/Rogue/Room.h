@@ -28,6 +28,7 @@ public:
 	void generateTraits();
 	void generateOpponents(int level);
 	void generateEndOpponents(int level, int monsterSize);
+	void generateItem();
 
 	void setVisited();
 	void setStart();
@@ -83,5 +84,6 @@ private:
 	string m_Special;
 
 	Trap* m_Trap;
+	Item* m_Item;
 };
 

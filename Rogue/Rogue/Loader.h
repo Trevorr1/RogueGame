@@ -27,6 +27,7 @@ public:
 
 	vector<Opponent*>* getOpponents(){ return opponents; };
 	vector<Trap*>* getTraps(){ return traps; };
+	vector<Item*>* getItems(){ return item_list; };
 
 	vector<string>* getRoom_sizes(){ return room_sizes; };
 	vector<string>* getRoom_states(){ return room_states; };

@@ -57,7 +57,7 @@ Loader::~Loader()
 
 	delete opponents;
 
-	//delete item_list;
+	delete item_list;
 }
 
 void Loader::loadEnemyList()
