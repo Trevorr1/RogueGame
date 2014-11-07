@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma once
 
 #include "Opponent.h"
@@ -82,6 +83,8 @@ private:
 };
 
 =======
+=======
+>>>>>>> origin/master
 #pragma once
 #include "LoaderManager.h"
 #include "Opponent.h"
@@ -89,7 +92,11 @@ private:
 #include "PoisonTrap.h"
 #include <iostream>
 #include <vector>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master
 
 
 using namespace std;
@@ -106,6 +113,10 @@ public:
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);
 
+<<<<<<< HEAD
+=======
+	void generateTraits();
+>>>>>>> origin/master
 	void generateOpponents(int level);
 	void generateEndOpponents(int level, int monsterSize);
 
@@ -161,4 +172,7 @@ private:
 	Trap* m_Trap;
 };
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master

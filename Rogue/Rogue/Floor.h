@@ -15,7 +15,6 @@ public:
 	Floor(int level, int rseed);
 	virtual ~Floor();
 
-	Room* generateRoom(int level, bool endBossRoom, int rseed);
 	void generateRooms(Room* roomAbove, bool last);
 	void updateMap();
 	void printFloor();
