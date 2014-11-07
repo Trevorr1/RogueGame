@@ -10,11 +10,7 @@ Manager::Manager()
 
 	int rseed = 5;
 	dungeon = new Dungeon(5);
-	Room* room = new Room();
-
-	opponent = new Opponent();
-	room->addOpponent(opponent);
-
+	
 	//LoaderManager::getInstance();
 }
 

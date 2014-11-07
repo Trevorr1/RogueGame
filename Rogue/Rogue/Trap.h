@@ -10,6 +10,9 @@ public:
 	virtual ~Trap();
 	Trap(string name, int damage){ this->name = name; this->damage = damage; };
 
+	void springTrap();
+	void deactivate();
+
 	string getName() { return name; }
 
 protected:
