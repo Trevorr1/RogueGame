@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "LoaderManager.h"
 #include "Manager.h"
 #include <chrono>
 #include <thread>
@@ -13,6 +14,9 @@ using namespace std;
 int main(int argc, const char* argv[])
 {
 	/*printf("\nHello World\n\n"); */
+
+	Loader* loader =  new Loader();
+	LoaderManager::getInstance()->setLoader(loader);
 
 	Manager*  manager = new Manager();
 	MenuRoom* menuRoom = new MenuRoom();

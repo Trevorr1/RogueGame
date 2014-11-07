@@ -9,12 +9,14 @@ public:
 	Item();
 	virtual ~Item();
 
-	void setDescription(string desc) { m_Description = desc; }
+	void setName(string name);
+	void setHealth(int health);
 
-	string getName() { return m_Name; }
+	string getName(){ return m_Name; };
+	int getHealth(){ return m_Health; };
 
 protected:
 	string m_Name;
-	string m_Description;
+	int m_Health;
 };
 

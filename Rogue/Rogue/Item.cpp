@@ -10,7 +10,12 @@ Item::~Item()
 {
 }
 
-void Item::setDescription(string desc)
+void Item::setName(string name)
 {
-	m_Description = desc;
+	m_Name = name;
+}
+
+void Item::setHealth(int health)
+{
+	m_Health = health;
 }

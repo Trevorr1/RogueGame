@@ -33,19 +33,19 @@ Dungeon::Dungeon(int rseed)
 	{
 		if (m_Floors.empty())
 		{
-			Floor* tempFloor = new Floor(rseed);
+			Floor* tempFloor = new Floor(f, rseed);
 			tempFloor->generateRooms(nullptr, false);
 			m_Floors.push_back(new Floor());
 		}
 		else if (f == DUNGEON_SIZE - 1)
 		{
-			Floor* tempFloor = new Floor(rseed);
+			Floor* tempFloor = new Floor(f, rseed);
 			tempFloor->generateRooms(m_Floors.at(f - 1)->getStairDown(), true);
 			m_Floors.push_back(tempFloor);
 		}
 		else
 		{
-			Floor* tempFloor = new Floor(rseed);
+			Floor* tempFloor = new Floor(f, rseed);
 			tempFloor->generateRooms(m_Floors.at(f - 1)->getStairDown(), false);
 			m_Floors.push_back(tempFloor);
 		}
