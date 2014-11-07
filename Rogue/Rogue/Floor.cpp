@@ -58,7 +58,7 @@ Floor::Floor(int level, int rseed)
 
 Floor::~Floor()
 {
-	delete[] m_Rooms;
+	delete[] *m_Rooms;
 }
 
 void Floor::generateRooms(Room* roomAbove, bool last)

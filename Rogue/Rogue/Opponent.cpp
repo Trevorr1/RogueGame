@@ -27,7 +27,7 @@ void Opponent::setOpponent(vector <string>* vectorLoaded)
 string Opponent::printStatus()
 {
 	string s = "";
-	float value = ((1.0 * m_CurrentHealth) / m_Health) * 100;
+	float value = ((1.0f * m_CurrentHealth) / m_Health) * 100;
 
 	if (value <= 20)
 		s += "On it's last leg.\n";
@@ -35,6 +35,8 @@ string Opponent::printStatus()
 		s += "Has some damage.\n";
 	else if (value == 100)
 		s += "Unharmed.\n";
+
+	return s;
 }
 
 void Opponent::damage(int dmg)

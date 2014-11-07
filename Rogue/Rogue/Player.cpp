@@ -39,6 +39,7 @@ void Player::pickUp(Item* item)
 string Player::printStats()
 {
 	// some fancy display for the stats
+	return "";
 }
 
 string Player::printInventory()
@@ -81,5 +82,7 @@ string Player::use(string item)
 			break;
 		}
 	}
-	if (done) m_Inventory->erase(m_Inventory->begin + toremove);
+	if (done) m_Inventory->erase(m_Inventory->begin() + toremove);
+
+	return ret + "\n\n";
 }

@@ -57,6 +57,7 @@ string Room::printRoomText()
 	// print enemies
 	string enemies = "Present: " + printOpponents() + "\n\n";
 
+	return desc + exits + enemies + "\n\n";
 }
 
 string Room::printOpponents()
@@ -144,7 +145,7 @@ void Room::generateOpponents(int level){
 			}
 		}
 		else{
-			for (int i = 0; i < loaderOpponents->size(); i++){
+			for (std::vector<Item*>::size_type i = 0; i < loaderOpponents->size(); i++){
 				/*find e.g. opponents lv 3 in floor level 6*/
 				if (loaderOpponents->at(i)->getLevel() == leveldivided/2){
 					randomOpponents->push_back(loaderOpponents->at(i));
@@ -174,7 +175,7 @@ void Room::generateOpponents(int level){
 			}
 		}
 		else{
-			for (int i = 0; i < randomOpponents->size(); i++){
+			for (std::vector<Item*>::size_type i = 0; i < randomOpponents->size(); i++){
 				opponents->push_back(randomOpponents->at(i));
 			}
 		}
@@ -193,7 +194,7 @@ void Room::generateEndOpponents(int level, int monsterSize){
 	/*End bosses to randomOppenents*/
 	if (level == 20){
 
-		for (int i = 0; i < loaderOpponents->size(); i++){
+		for (std::vector<Item*>::size_type i = 0; i < loaderOpponents->size(); i++){
 			/*find opponents lv 11*/
 			if (loaderOpponents->at(i)->getLevel() == leveldivided / 2 + 1){
 				randomOpponents->push_back(loaderOpponents->at(i));
@@ -236,78 +237,13 @@ void Room::setTrap(int level){
 	traps = nullptr;
 }
 
+string Room::search()
+{
+	return "";
+}
+
 void Room::addTrait(string trait)
 {
 	m_Traits.push_back(trait);
 }
 
-
-void Room::setVisited()
-{
-	m_Visited = true;
-}
-
-void Room::setStart()
-{
-	m_startPoint = true;
-}
-
-void Room::setEnd()
-{
-	m_EndPoint = true;
-}
-
-void Room::setNorth(Room* north)
-{
-	m_North = north;
-}
-
-void Room::setEast(Room* east)
-{
-	m_East = east;
-}
-
-void Room::setWest(Room* west)
-{
-	m_West = west;
-}
-
-void Room::setSouth(Room* south)
-{
-	m_South = south;
-}
-
-void Room::setStairUp(Room* up)
-{
-	m_StairUp = up;
-}
-
-void Room::setStairDown(Room* down)
-{
-	m_StairDown = down;
-}
-
-Room* Room::getNorth()
-{
-	return m_North;
-}
-
-Room* Room::getEast()
-{
-	return m_East;
-}
-
-Room* Room::getWest()
-{
-	return m_West;
-}
-
-Room* Room::getSouth()
-{
-	return m_South;
-}
-
-bool Room::getVisited()
-{
-	return m_Visited;
-}
