@@ -30,9 +30,9 @@ public:
 	void generateEndOpponents(int level, int monsterSize);
 	void generateItem();
 
-	void setVisited();
-	void setStart();
-	void setEnd();
+	void setVisited() { m_Visited = true;  }
+	void setStart() { m_startPoint = true; }
+	void setEnd() { m_EndPoint = true; }
 
 	void setNorth(Room* north) { m_North = north; }
 	void setEast(Room* east) { m_East = east; }

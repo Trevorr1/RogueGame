@@ -48,6 +48,7 @@ string Manager::handleInput(string input)
 		ret += handleAttackInput(input);
 		break;
 	}
+	return ret + "\n\n";
 }
 
 string Manager::handleRoomInput(string input)
@@ -91,21 +92,24 @@ string Manager::handleRoomInput(string input)
 string Manager::handleFightInput(string input)
 {
 	string ret = "";
-	[attack | flee | drink | use]
-	if (input == "attack"){
+	if (input.compare("attack") == 0)
+	{
 		attack();
 	}
-	else if (input == "flee"){
+	else if (input.compare("flee") == 0)
+	{
 		flee();
 	}
-	else if (input == "drink"){
+	else if (input.compare("drink") == 0)
+	{
 		inventory(); // needs to be specific to potions
 	}
-	else if (input == "use")
+	else if (input.compare("use") == 0)
 	{
 		inventory();// needs to be changed to use an item or some shizz
 	}
-	else{
+	else
+	{
 		ret += "Choose another option please.\n\n";
 	}
 	return ret;
@@ -124,33 +128,33 @@ string Manager::handleFleeInput(string input)
 	else
 	{
 		Room* nextMove;
-		switch (input)
+		if (input == "north")
 		{
-		case "north":
 			nextMove = dungeon->getCurrentRoom()->getNorth();
-			break;
-		case "east":
+		}
+		else if (input == "east")
+		{
 			nextMove = dungeon->getCurrentRoom()->getEast();
-			break;
-		case "west":
+		}
+		else if (input == "west")
+		{
 			nextMove = dungeon->getCurrentRoom()->getWest();
-			break;
-		case "south":
+		}
+		else if (input == "south")
+		{
 			nextMove = dungeon->getCurrentRoom()->getSouth();
-			break;
-		case "up":
+		}
+		else if (input == "up")
+		{
 			nextMove = dungeon->getCurrentRoom()->getStairUp();
-			break;
-		case "down":
+		}
+		else if (input == "down")
+		{
 			nextMove = dungeon->getCurrentRoom()->getStairDown();
-			break;
-		default:
-			break;
 		}
 		explore();
 		dungeon->setCurrentRoom(dungeon->getCurrentRoom());
 	}
-
 	return ret + "\n\n";
 }
 
@@ -237,6 +241,7 @@ string Manager::printText()
 		ret += printOptions() +"\n\n";
 		break;
 	}
+	return ret + "\n\n";
 }
 
 string Manager::printOptions()
@@ -264,6 +269,7 @@ string Manager::printOptions()
 		return updateAttackOptions();
 		break;
 	}
+	return "";
 }
 
 string Manager::updateAttackOptions()
