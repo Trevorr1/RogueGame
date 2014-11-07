@@ -257,7 +257,11 @@ string Room::search()
 void Room::generateItem(){
 	vector<Item*>* items = LoaderManager::getInstance()->getLoader()->getItems();
 	
-	m_Item = items->at(rand() % items->size());
+	//Decide whether Room has an item or not.
+	int randBool = rand() % 2;
+	if (randBool == 1){
+		m_Item = items->at(rand() % items->size());
+	}
 }
 
 void Room::addTrait(string trait)
