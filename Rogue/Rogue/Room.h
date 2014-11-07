@@ -15,6 +15,12 @@ public:
 	~Room();
 
 	char* printRoom();
+	string printRoomText();
+	string printOpponents();
+	string printOpponentsFight();
+	string printExits();
+
+	string search();
 
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);
@@ -23,28 +29,33 @@ public:
 	void setStart();
 	void setEnd();
 
-	void setNorth(Room* north);
-	void setEast(Room* east);
-	void setWest(Room* west);
-	void setSouth(Room* south);
+	void setNorth(Room* north) { m_North = north; }
+	void setEast(Room* east) { m_East = east; }
+	void setWest(Room* west) { m_West = west; }
+	void setSouth(Room* south) { m_South = south; }
 
-	void setStairUp(Room* up);
-	void setStairDown(Room* down);
+	void setStairUp(Room* up) { m_StairUp = up; }
+	void setStairDown(Room* down) { m_StairDown = down; }
 
-	Room* getNorth();
-	Room* getEast();
-	Room* getWest();
-	Room* getSouth();
+	Room* getNorth() { return m_North; }
+	Room* getEast() { return m_East; }
+	Room* getWest() { return m_West;  }
+	Room* getSouth() { return m_South; }
 
-	bool getVisited();
+	Room* getStairUp() { return m_StairUp; }
+	Room* getStairDown() { return m_StairDown; }
 
+	bool getVisited() { return m_Visited; }
+	bool getSearched() { return m_Searched; }
+
+	
 	void setRoom(vector <string>* vectorLoaded);
 
 	vector<Opponent*>* getOpponents();
 
 private:
-	vector<string*> m_Traits;
-	vector<Opponent*>* opponents;
+	vector<string> m_Traits;
+	vector<Opponent*>* m_Opponents;
 
 	Room *m_North, 
 		*m_South, 
@@ -55,6 +66,7 @@ private:
 		*m_StairDown;
 	
 	bool m_Visited,
+		m_Searched,
 		m_startPoint,
 		m_EndPoint;
 

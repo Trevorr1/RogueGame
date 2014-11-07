@@ -24,6 +24,21 @@ void Opponent::setOpponent(vector <string>* vectorLoaded)
 	m_Name = vectorLoaded->at(5);
 }
 
-int Opponent::get_level(){
-	return m_Level;
+string Opponent::printStatus()
+{
+	string s = "";
+	float value = ((1.0 * m_CurrentHealth) / m_Health) * 100;
+
+	if (value <= 20)
+		s += "On it's last leg.\n";
+	else if (value > 20 && value < 100)
+		s += "Has some damage.\n";
+	else if (value == 100)
+		s += "Unharmed.\n";
+}
+
+void Opponent::damage(int dmg)
+{
+	m_CurrentHealth -= dmg;
+	if (m_CurrentHealth < 0) m_Alive = false;
 }

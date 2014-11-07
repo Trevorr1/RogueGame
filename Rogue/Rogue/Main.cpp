@@ -17,7 +17,6 @@ int main(int argc, const char* argv[])
 	Manager*  manager = new Manager();
 	MenuRoom* menuRoom = new MenuRoom();
 	Player* player = new Player();
-	manager->setState(menuRoom);
 	
 	manager->loadAll();
 
@@ -31,7 +30,6 @@ int main(int argc, const char* argv[])
 		cout << "Please enter an string value: ";
 		cin >> input;
 		cout << "The value you entered is " << input << endl;
-		manager->getState()->handleInput(input);
 
 	}
 

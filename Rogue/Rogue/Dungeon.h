@@ -3,6 +3,7 @@
 #define DUNGEON_SIZE 20
 
 #include "Floor.h"
+#include "Player.h"
 #include <vector>
 
 class Dungeon
@@ -17,6 +18,14 @@ public:
 
 	Floor* getCurrentFloor();
 	Room* getCurrentRoom();
+	Player* getPlayer() { return m_Player; }
+
+
+	string resolveDamageToPlayer();
+	string resolveDamageToBaddies(string baddie);
+
+	string attackPlayer(Opponent* baddie);
+	string attackBaddie(Opponent* baddie);
 
 	void save(vector <string *>* vectorSave);
 
@@ -25,5 +34,7 @@ private:
 
 	Floor* m_CurrentFloor;
 	Room* m_CurrentRoom;
+	
+	Player* m_Player;
 };
 

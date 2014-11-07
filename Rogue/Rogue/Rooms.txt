@@ -6,7 +6,7 @@ huge
 room_state:
 trashed
 ordered
-blood all over
+slated in blood
 room_illumation:
 dark
 lit by candle light

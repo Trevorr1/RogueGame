@@ -9,7 +9,9 @@ public:
 	Item();
 	virtual ~Item();
 
-	void setDescription(string desc);
+	void setDescription(string desc) { m_Description = desc; }
+
+	string getName() { return m_Name; }
 
 protected:
 	string m_Name;

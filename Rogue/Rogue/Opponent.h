@@ -9,11 +9,22 @@ namespace std{
 		Opponent();
 		virtual~Opponent();
 
-		int get_level();
+		int getLevel() { return m_Level; }
+		int getDmg() { return m_Atk; }
+		int getDef() { return m_Def; }
+
+		bool isAlive() { return m_Alive; }
+
+		string getName(){ return m_Name; }
+
+		string printStatus();
 		void setOpponent(vector <string>* vectorLoaded);
 
+		void damage(int dmg);
+
 	private:
-		int m_Level, m_Atk, m_Health, m_Def, m_Gains;
+		int m_Level, m_Atk, m_Health, m_CurrentHealth, m_Def, m_Gains;
+		bool m_Alive;
 		string m_Name;
 	};
 }

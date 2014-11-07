@@ -32,17 +32,80 @@ char* Room::printRoom()
 	else return "_";
 }
 
+string Room::printRoomText()
+{
+	string desc = "Description: You're in a ";
+	desc += m_Traits.at(0) + " " + m_Traits.at(3);
+	desc += "Room that is ";
+	desc += m_Traits.at(2);
+	desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
+	desc += m_Traits.at(6) + "\n\n";
+
+	// print room exits
+	string exits = "Exits: " + printExits() + "\n\n";
+	
+	// print enemies
+	string enemies = "Present: " + printOpponents() + "\n\n";
+
+}
+
+string Room::printOpponents()
+{
+	string s = "";
+
+	for (std::vector<Opponent*>::size_type i = 0; i != m_Opponents->size(); i++) {
+		if (i < m_Opponents->size())
+			s += m_Opponents->at(i)->getName() + ", ";
+		else
+			s += " and " + m_Opponents->at(i)->getName() + ".";
+	}
+	return s;
+}
+
+string Room::printOpponentsFight()
+{
+	string s = "";
+
+	for (std::vector<Opponent*>::size_type i = 0; i != m_Opponents->size(); i++) {
+		s += m_Opponents->at(i)->getName() + " - " + to_string(i + 1) +": ";
+		s += m_Opponents->at(i)->printStatus();
+	}
+	return s;
+}
+
+string Room::printExits()
+{
+	string s = "There is";
+	if (m_North != nullptr)
+		s += " a door to the north,";
+	if (m_East != nullptr)
+		s += " a door to the east,";
+	if (m_West != nullptr)
+		s += " a door to the west,";
+	if (m_South != nullptr)
+		s += " a door to the south,";
+	if (m_StairDown != nullptr)
+		s += " a stairway leading deeper down into the dungeon,";
+	if (m_StairUp != nullptr)
+		s += " a stairway leading to an upper floor.";
+
+	string ret = s.substr(0, s.length() - 1);
+	ret += ".";
+	return ret;
+}
+
+
 void Room::addOpponent(Opponent* opponent){
 	//opponents.push_back(opponent);
 }
 
 vector<Opponent*>* Room::getOpponents(){
-	return opponents;
+	return m_Opponents;
 }
 
 void Room::addTrait(string trait)
 {
-	m_Traits.push_back(&trait);
+	m_Traits.push_back(trait);
 }
 
 
