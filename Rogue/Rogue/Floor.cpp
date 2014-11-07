@@ -33,12 +33,11 @@ Floor::Floor(int level, int rseed)
 
 		for (int column = 0; column < SIZE; column++)
 		{
-			//m_Rooms[rows][column] = new Room(rseed);
 			if (level == 19 && randomColumn == column){
-				m_Rooms[rows][column] = generateRoom(level, true, rseed);
+				m_Rooms[rows][column] = new Room(level, true, rseed);
 			}
 			else{
-				m_Rooms[rows][column] = generateRoom(level, false, rseed);
+				m_Rooms[rows][column] = new Room(level, false, rseed);
 			}
 		}
 
@@ -60,27 +59,6 @@ Floor::Floor(int level, int rseed)
 Floor::~Floor()
 {
 	delete[] m_Rooms;
-}
-
-Room* Floor::generateRoom(int level, bool endBossRoom, int rseed){
-	//srand(rseed); //rseed is handig wanneer je 1 random object wil. Maar deze methode wordt 100x per floor aangeroepen.
-	Room* room = new Room(level, endBossRoom, rseed);
-
-	string size = loader->getRoom_sizes()->at(rand() % loader->getRoom_sizes()->size());
-	string state = loader->getRoom_states()->at(rand() % loader->getRoom_states()->size());
-	string illumation = loader->getRoom_lightings()->at(rand() % loader->getRoom_lightings()->size());
-	string shape = loader->getRoom_shapes()->at(rand() % loader->getRoom_shapes()->size());
-	string content = loader->getRoom_contents()->at(rand() % loader->getRoom_contents()->size());
-	string special = loader->getRoom_specialTraits()->at(rand() % loader->getRoom_specialTraits()->size());
-
-	room->addTrait(size);
-	room->addTrait(state);
-	room->addTrait(illumation);
-	room->addTrait(shape);
-	room->addTrait(content);
-	room->addTrait(special);
-
-	return room;
 }
 
 void Floor::generateRooms(Room* roomAbove, bool last)

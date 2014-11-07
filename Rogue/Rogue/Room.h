@@ -22,6 +22,7 @@ public:
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);
 
+	void generateTraits();
 	void generateOpponents(int level);
 	void generateEndOpponents(int level, int monsterSize);
 
