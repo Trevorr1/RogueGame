@@ -245,7 +245,7 @@ void Loader::loadFileItems(){
 			//item->setHealth(atoi(line.c_str()));
 			item->setHealth(stoi(line));
 			item_list->push_back(item);
-			cout << item->getHealth() << endl;
+			//cout << item->getHealth() << endl;
 
 			i = 0;
 		}

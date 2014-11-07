@@ -14,7 +14,7 @@ class Room
 {
 public:
 	Room();
-	Room(int level, int rseed);
+	Room(int level, bool endBossRoom, int rseed);
 	~Room();
 
 	char* printRoom();
@@ -23,6 +23,7 @@ public:
 	void addTrait(string trait);
 
 	void generateOpponents(int level);
+	void generateEndOpponents(int level, int monsterSize);
 
 	void setVisited();
 	void setStart();

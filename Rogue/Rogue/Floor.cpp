@@ -29,15 +29,21 @@ Floor::Floor(int level, int rseed)
 
 	for (int rows = 0; rows < SIZE; rows++)
 	{
-		
+		int randomColumn = rand() % 10; // level begint bij 0, dus niet 10+1
+
 		for (int column = 0; column < SIZE; column++)
 		{
 			//m_Rooms[rows][column] = new Room(rseed);
-			m_Rooms[rows][column] = generateRoom(level, rseed);
+			if (level == 19 && randomColumn == column){
+				m_Rooms[rows][column] = generateRoom(level, true, rseed);
+			}
+			else{
+				m_Rooms[rows][column] = generateRoom(level, false, rseed);
+			}
 		}
 
 		//Trap added to random room (10 total)
-		int randomColumn = rand() % 10; // level begint bij 0, dus niet 10+1
+		//int randomColumn = rand() % 10; // level begint bij 0, dus niet 10+1
 		m_Rooms[rows][randomColumn]->setTrap(level);
 	}
 
@@ -56,9 +62,9 @@ Floor::~Floor()
 	delete[] m_Rooms;
 }
 
-Room* Floor::generateRoom(int level, int rseed){
+Room* Floor::generateRoom(int level, bool endBossRoom, int rseed){
 	//srand(rseed); //rseed is handig wanneer je 1 random object wil. Maar deze methode wordt 100x per floor aangeroepen.
-	Room* room = new Room(level, rseed);
+	Room* room = new Room(level, endBossRoom, rseed);
 
 	string size = loader->getRoom_sizes()->at(rand() % loader->getRoom_sizes()->size());
 	string state = loader->getRoom_states()->at(rand() % loader->getRoom_states()->size());

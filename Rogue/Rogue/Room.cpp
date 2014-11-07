@@ -5,12 +5,19 @@ Room::Room()
 	opponents = new vector<Opponent*>;
 }
 
-Room::Room(int level, int rseed)
+
+Room::Room(int level, bool endBossRoom, int rseed)
 {
 	opponents = new vector<Opponent*>;
-	//TODO make opponents based on floor level.
+
 	LoaderManager::getInstance()->getLoader();
-	generateOpponents(level);
+
+	if (!endBossRoom){
+		generateOpponents(level);
+	}
+	else{
+		generateEndOpponents(level, 2);
+	}
 }
 
 
@@ -83,7 +90,26 @@ void Room::generateOpponents(int level){
 			}
 		}
 
-	loaderOpponents == nullptr;
+	loaderOpponents = nullptr;
+	delete randomOpponents;
+}
+
+void Room::generateEndOpponents(int level, int monsterSize){
+	vector<Opponent*>* loaderOpponents = LoaderManager::getInstance()->getLoader()->getOpponents();
+	vector<Opponent*>* randomOpponents = new vector<Opponent*>;
+
+	/*End bosses to randomOppenents*/
+	if (level == 19){
+		for (int i = 23; i < loaderOpponents->size(); i++){
+			randomOpponents->push_back(loaderOpponents->at(i));
+		}
+	}
+	/*pick random end bosses based on monsterSize*/
+	for (int i = 0; i < monsterSize; i++){
+		int randomEndBoss = rand() % randomOpponents->size();
+		opponents->push_back(randomOpponents->at(randomEndBoss));
+	}
+	
 	delete randomOpponents;
 }
 
