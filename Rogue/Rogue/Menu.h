@@ -11,8 +11,8 @@ public:
 
 	//void doAction(Context* context);
 	virtual void handleInput(string input);
-	virtual void addOptions(string option);
-	virtual void clearOptions();
+	//virtual void addOptions(string option);
+	//virtual void clearOptions();
 	
 	string printOptions();
 

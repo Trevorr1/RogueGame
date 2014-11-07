@@ -146,11 +146,11 @@ void Room::generateOpponents(int level){
 		else{
 			for (int i = 0; i < loaderOpponents->size(); i++){
 				/*find e.g. opponents lv 3 in floor level 6*/
-				if (loaderOpponents->at(i)->get_level() == leveldivided/2){
+				if (loaderOpponents->at(i)->getLevel() == leveldivided/2){
 					randomOpponents->push_back(loaderOpponents->at(i));
 				}
 				/*find e.g opponents lv 4 in floor level 6*/
-				if(loaderOpponents->at(i)->get_level() == leveldivided / 2+1){
+				if(loaderOpponents->at(i)->getLevel() == leveldivided / 2+1){
 					randomOpponents->push_back(loaderOpponents->at(i));
 				}
 				
@@ -195,15 +195,15 @@ void Room::generateEndOpponents(int level, int monsterSize){
 
 		for (int i = 0; i < loaderOpponents->size(); i++){
 			/*find opponents lv 11*/
-			if (loaderOpponents->at(i)->get_level() == leveldivided / 2 + 1){
+			if (loaderOpponents->at(i)->getLevel() == leveldivided / 2 + 1){
 				randomOpponents->push_back(loaderOpponents->at(i));
 			}
 			/*find opponents lv 12*/
-			if (loaderOpponents->at(i)->get_level() == leveldivided / 2 + 2){
+			if (loaderOpponents->at(i)->getLevel() == leveldivided / 2 + 2){
 				randomOpponents->push_back(loaderOpponents->at(i));
 			}
 			/*find opponents lv 13*/
-			if (loaderOpponents->at(i)->get_level() == leveldivided / 2 + 3){
+			if (loaderOpponents->at(i)->getLevel() == leveldivided / 2 + 3){
 				randomOpponents->push_back(loaderOpponents->at(i));
 			}
 
@@ -233,7 +233,7 @@ void Room::setTrap(int level){
 		int randomTrap = rand() % 2+4;
 		m_Trap = traps->at(randomTrap);
 	}
-	traps == nullptr;
+	traps = nullptr;
 }
 
 void Room::addTrait(string trait)
@@ -310,13 +310,4 @@ Room* Room::getSouth()
 bool Room::getVisited()
 {
 	return m_Visited;
-}
-
-void Room::setRoom(vector <string>* vectorLoaded){
-	m_Size = vectorLoaded->at(0);
-	m_State = vectorLoaded->at(1);
-	m_Illumation = vectorLoaded->at(2);
-	m_Shape = vectorLoaded->at(3);
-	m_Content = vectorLoaded->at(4);
-	m_Special = vectorLoaded->at(5);
 }

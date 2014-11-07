@@ -127,7 +127,7 @@ string Dungeon::resolveDamageToBaddies(string baddie)
 	if (done)
 	{
 		ret += "You have slain " + m_CurrentRoom->getOpponents()->at(toremove)->getName() + ".\n";
-		m_CurrentRoom->getOpponents()->erase(m_CurrentRoom->getOpponents()->begin + toremove);
+		m_CurrentRoom->getOpponents()->erase(m_CurrentRoom->getOpponents()->begin + toremove); // begin -> begin(), groetjes ^^
 	}
 	return ret + "\n\n";
 }

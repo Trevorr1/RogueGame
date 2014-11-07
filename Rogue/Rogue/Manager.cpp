@@ -15,8 +15,7 @@ Manager::Manager()
 	opponent = new Opponent();
 	room->addOpponent(opponent);
 
-	Loader* loader = new Loader();
-	loadFileRandomRoom();
+	//LoaderManager::getInstance();
 }
 
 
@@ -149,7 +148,7 @@ string Manager::handleFleeInput(string input)
 			break;
 		}
 		explore();
-		dungeon->setCurrentRoom(dungeon->getCurrentRoom);
+		dungeon->setCurrentRoom(dungeon->getCurrentRoom());
 	}
 
 	return ret + "\n\n";

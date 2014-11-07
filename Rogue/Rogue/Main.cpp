@@ -29,14 +29,6 @@ int main(int argc, const char* argv[])
 	Manager*  manager = new Manager();
 	MenuRoom* menuRoom = new MenuRoom();
 	Player* player = new Player();
-<<<<<<< HEAD
-	
-	manager->loadAll();
-=======
-	manager->setState(menuRoom);
->>>>>>> origin/master
-
-	manager->loadAll();
 
 	while (true){
 		chrono::milliseconds dura(2000);
@@ -47,16 +39,15 @@ int main(int argc, const char* argv[])
 		cout << "Please enter an string value: ";
 		cin >> input;
 		cout << "The value you entered is " << input << endl;
-
 	}
 
-	Floor* floor = new Floor;
-	floor->generateRooms(nullptr, false);
-	floor->updateMap();
-	floor->printFloor();
-	string input;
-	cout << "press enter to exit...";
-	cin >> input;
+	//Floor* floor = new Floor;
+	//floor->generateRooms(nullptr, false);
+	//floor->updateMap();
+	//floor->printFloor();
+	//string input;
+	//cout << "press enter to exit...";
+	//cin >> input;
 
 	_CrtDumpMemoryLeaks();
 }
