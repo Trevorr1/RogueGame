@@ -239,7 +239,18 @@ void Room::setTrap(int level){
 	traps = nullptr;
 }
 
-string Room::search(){
+string Room::search()
+{
+	string s = "";
+	if (m_Trap != nullptr)
+	{
+		s += "You found and deactivated a " + m_Trap->getName() + "\n\n";
+		delete m_Trap;
+	}
+	if (m_Item != nullptr)
+	{
+		s += "You found a " + m_Item->getName() + "\n\n";
+	}
 	return "";
 }
 

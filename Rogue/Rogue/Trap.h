@@ -8,10 +8,10 @@ class Trap
 public:
 	Trap();
 	virtual ~Trap();
-	virtual void springTrap();
-	virtual void deactivate();
-
 	Trap(string name, int damage){ this->name = name; this->damage = damage; };
+
+	string getName() { return name; }
+
 protected:
 	bool active;
 	int damage;
