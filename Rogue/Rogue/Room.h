@@ -54,6 +54,8 @@ public:
 
 	Trap* getTrap(){ return m_Trap; };
 	void setTrap(int level);
+
+	void takeItem() { m_Item = nullptr; }
 	
 	vector<Opponent*>* getOpponents();
 
