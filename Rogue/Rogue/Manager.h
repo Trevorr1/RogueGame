@@ -15,6 +15,8 @@ public:
 	Manager();
 	~Manager();
 
+	void init();
+
 	void saveAll();
 	void loadAll();
 
@@ -25,12 +27,12 @@ public:
 	string handleInventoryInput(string input);
 	string handleAttackInput(string input);
 
-	void fight() { *m_Menu = FightMenu; }
-	void flee() { *m_Menu = FleeMenu; }
-	void inventory() { *m_Menu = InventoryMenu; }
-	void map() { *m_Menu = MapMenu; }
-	void attack() { *m_Menu = AttackMenu; }
-	void explore() { *m_Menu = RoomMenu; }
+	void fight() { m_Menu = FightMenu; }
+	void flee() { m_Menu = FleeMenu; }
+	void inventory() { m_Menu = InventoryMenu; }
+	void map() { m_Menu = MapMenu; }
+	void attack() { m_Menu = AttackMenu; }
+	void explore() { m_Menu = RoomMenu; }
 
 	void saveFile(vector <string>* vectorToSave, string textFileClass);
 	vector <string>* loadFile(string textFileClass);
@@ -47,7 +49,7 @@ public:
 private:
 	enum Menus{ RoomMenu, FightMenu, AttackMenu, FleeMenu, InventoryMenu, MapMenu};
 
-	Menus* m_Menu;
+	Menus m_Menu;
 
 	Dungeon* dungeon;
 

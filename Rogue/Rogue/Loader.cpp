@@ -53,7 +53,7 @@ Loader::~Loader()
 
 	//delete vectorTrapKinds;
 	delete traps;
-	delete trap_poison;
+	//delete trap_poison;
 
 	delete opponents;
 

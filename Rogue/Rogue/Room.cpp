@@ -2,14 +2,14 @@
 
 Room::Room()
 {
-	opponents = new vector<Opponent*>;
+	m_Opponents = new vector<Opponent*>;
 }
 
 
 Room::Room(int level, bool endBossRoom, int rseed)
 {
 	generateTraits();
-	opponents = new vector<Opponent*>;
+	m_Opponents = new vector<Opponent*>;
 
 	if (!endBossRoom){
 		generateOpponents(level);
@@ -24,7 +24,7 @@ Room::Room(int level, bool endBossRoom, int rseed)
 
 Room::~Room()
 {
-	delete opponents;
+	delete m_Opponents;
 }
 
 char* Room::printRoom()
@@ -109,7 +109,7 @@ string Room::printExits()
 
 
 void Room::addOpponent(Opponent* opponent){
-	opponents->push_back(opponent);
+	m_Opponents->push_back(opponent);
 }
 
 vector<Opponent*>* Room::getOpponents(){
@@ -173,12 +173,12 @@ void Room::generateOpponents(int level){
 		if (randomOpponents->size() >= randomOpponentsAmount){
 			for (int i = 0; i < randomOpponentsAmount; i++){
 				int random3 = rand() % randomOpponents->size();
-				opponents->push_back(randomOpponents->at(random3));
+				m_Opponents->push_back(randomOpponents->at(random3));
 			}
 		}
 		else{
 			for (std::vector<Item*>::size_type i = 0; i < randomOpponents->size(); i++){
-				opponents->push_back(randomOpponents->at(i));
+				m_Opponents->push_back(randomOpponents->at(i));
 			}
 		}
 
@@ -215,7 +215,7 @@ void Room::generateEndOpponents(int level, int monsterSize){
 	/*pick random end bosses based on monsterSize*/
 	for (int i = 0; i < monsterSize; i++){
 		int randomEndBoss = rand() % randomOpponents->size();
-		opponents->push_back(randomOpponents->at(randomEndBoss));
+		m_Opponents->push_back(randomOpponents->at(randomEndBoss));
 	}
 	
 	delete randomOpponents;
