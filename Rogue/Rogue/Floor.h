@@ -24,7 +24,7 @@ public:
 
 	Room* getStairUp();
 	Room* getStairDown();
-
+	Room* getStartingRoom(){ return m_StartingRoom; };
 	void save(vector <string*>* vectorSave);
 
 
@@ -34,6 +34,8 @@ private:
 	Room* m_Rooms[SIZE][SIZE];
 	Room* m_StairDown;
 	Room* m_StairUp;
+
+	Room* m_StartingRoom;
 
 	char* m_Map[(SIZE * 2)][(SIZE * 2)];
 

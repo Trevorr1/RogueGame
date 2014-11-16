@@ -26,6 +26,7 @@ void Manager::init(){
 	dungeon->getFloors()->at(0)->printFloor();
 
 	dungeon->setCurrentFloor(dungeon->getFloors()->at(0));
+	dungeon->setCurrentRoom(dungeon->getFloors()->at(0)->getStartingRoom());
 	m_Menu = RoomMenu;
 }
 
