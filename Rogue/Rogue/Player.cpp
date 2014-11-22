@@ -57,8 +57,22 @@ string Player::printInventory()
 
 void Player::rest()
 {
-	m_CurrentHealth += (int)((1.0 * m_Health) / 8);
-	if (m_CurrentHealth > m_Health) m_CurrentHealth = m_Health;
+	int toHeal = 0;
+	if (m_CurrentHealth != m_Health){
+		toHeal = (int)((1.0 * m_Health) / 8);
+		if (m_CurrentHealth + toHeal > m_Health) 
+		{
+			cout << "You at full health!" << endl;
+			m_CurrentHealth = m_Health;
+		}
+		else
+		{
+			m_CurrentHealth += toHeal;
+			cout << "You healed " << toHeal << 
+				" hitpoints, your current health is: " << m_CurrentHealth << endl << endl;
+		}
+	}
+	else cout << "Your health is already full!" << endl << endl;
 }
 
 void Player::heal(int health)

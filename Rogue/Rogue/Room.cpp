@@ -239,19 +239,20 @@ void Room::setTrap(int level){
 	traps = nullptr;
 }
 
-string Room::search()
+void Room::search()
 {
-	string s = "";
+	string ret = "";
 	if (m_Trap != nullptr)
 	{
-		s += "You found and deactivated a " + m_Trap->getName() + "\n\n";
+		ret += "You found and deactivated a " + m_Trap->getName() + "\n\n";
 		delete m_Trap;
 	}
 	if (m_Item != nullptr)
 	{
-		s += "You found a " + m_Item->getName() + "\n\n";
+		ret += "You found a " + m_Item->getName() + "\n\n";
 	}
-	return "";
+	// the item needs to be given to the player somehow
+	cout << ret << endl << endl;
 }
 
 void Room::generateItem(){

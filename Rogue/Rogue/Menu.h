@@ -1,24 +1,20 @@
 #pragma once
 #include <iostream>
 #include <vector>
+//#include "MenuFactory.h"
 using namespace std;
-
+class MenuFactory;
 class Menu
 {
 public:
 	Menu();
 	virtual ~Menu();
 
-	//void doAction(Context* context);
-	virtual void handleInput(string input);
-	//virtual void addOptions(string option);
-	//virtual void clearOptions();
+	virtual void handleInput(MenuFactory* context, string input) = 0;
 	
-	string printOptions();
-
+	virtual void printOptions() = 0;
 
 protected:
-	string m_Text;
 	vector<string> m_Options;
 };
 
