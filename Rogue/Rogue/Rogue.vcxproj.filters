@@ -69,6 +69,15 @@
     <ClCompile Include="LoaderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MenuAttack.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h">
@@ -110,10 +119,19 @@
     <ClInclude Include="MenuRoom.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="MenuFlight.h">
+    <ClInclude Include="LoaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoaderManager.h">
+    <ClInclude Include="MenuAttack.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuFlight.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,7 +20,7 @@ public:
 	string printOpponentsFight();
 	string printExits();
 
-	string search();
+	void search();
 
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);

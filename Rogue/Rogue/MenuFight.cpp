@@ -20,9 +20,10 @@ MenuFight::~MenuFight()
 {
 }
 
-void MenuFight::handleInput(string input){
+void MenuFight::handleInput(MenuFactory* context, string input) {
 	printf("MenuFight handled the input \n");
 }
+
 
 void MenuFight::attack(){
 
