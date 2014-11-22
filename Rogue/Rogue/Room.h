@@ -65,7 +65,6 @@ public:
 private:
 	vector<string> m_Traits;
 	vector<Opponent*>* m_Opponents;
-	vector<Opponent*>* opponents;
 
 	Room *m_North, 
 		*m_South, 

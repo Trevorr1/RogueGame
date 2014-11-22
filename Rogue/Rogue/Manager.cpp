@@ -7,22 +7,34 @@ using namespace std;
 Manager::Manager()
 {
 	textfile = "data_save.txt";
-
-	int rseed = 5;
-	dungeon = new Dungeon(5);
-	
 	//LoaderManager::getInstance();
+
+	init();
 }
 
 
 Manager::~Manager()
 {
+	delete dungeon;
 }
+
+void Manager::init(){
+	//create Dungeon and start at lv 1 (according to the code lv 0)
+	int rseed = 5;
+	dungeon = new Dungeon(5);
+	dungeon->getFloors()->at(0)->updateMap();
+	dungeon->getFloors()->at(0)->printFloor();
+
+	dungeon->setCurrentFloor(dungeon->getFloors()->at(0));
+	dungeon->setCurrentRoom(dungeon->getFloors()->at(0)->getStartingRoom());
+	m_Menu = RoomMenu;
+}
+
 
 string Manager::handleInput(string input)
 {
 	string ret = "";
-	switch (*m_Menu)
+	switch (m_Menu)
 	{
 	case RoomMenu:
 		ret += handleRoomInput(input);
@@ -197,7 +209,7 @@ string Manager::handleAttackInput(string input)
 string Manager::printText()
 {
 	string ret = "";
-	switch (*m_Menu)
+	switch (m_Menu)
 	{
 	case RoomMenu:
 		ret += dungeon->getCurrentRoom()->printRoomText() + "What do you do?\n\n";
@@ -244,7 +256,7 @@ string Manager::printText()
 
 string Manager::printOptions()
 {
-	switch (*m_Menu)
+	switch (m_Menu)
 	{
 	case RoomMenu:
 		return "[fight|flee|search|rest|inventory|map]\n";

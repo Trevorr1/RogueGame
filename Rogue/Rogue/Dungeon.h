@@ -20,6 +20,8 @@ public:
 	Room* getCurrentRoom();
 	Player* getPlayer() { return m_Player; }
 
+	vector<Floor*>* getFloors(){ return m_Floors; };
+
 
 	string resolveDamageToPlayer();
 	string resolveDamageToBaddies(string baddie);
@@ -30,7 +32,7 @@ public:
 	void save(vector <string *>* vectorSave);
 
 private:
-	vector<Floor*> m_Floors;
+	vector<Floor*>* m_Floors;
 
 	Floor* m_CurrentFloor;
 	Room* m_CurrentRoom;

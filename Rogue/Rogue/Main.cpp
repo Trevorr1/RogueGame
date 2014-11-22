@@ -23,31 +23,44 @@ int main(int argc, const char* argv[])
 	/*printf("\nHello World\n\n"); */
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	Loader* loader = new Loader();
-	LoaderManager::getInstance()->setLoader(loader);
+	Loader* loader = NULL;
+	Manager* manager = NULL;
 
-	Manager*  manager = new Manager();
-	MenuRoom* menuRoom = new MenuRoom();
-	Player* player = new Player();
+	bool running = false;
 
-	while (true){
-		chrono::milliseconds dura(2000);
-		this_thread::sleep_for(dura);
-		printf("Thread sleep 2 sec \n\n");
+	cout << "The Rogue Game by Trevorr Marshall & Huan Nguyen" << endl;
+	cout << "Enter play to play" << endl;
 
-		string input;
-		cout << "Please enter an string value: ";
-		cin >> input;
-		cout << "The value you entered is " << input << endl;
+	string input;
+	cin >> input;
+	if (input == "play"){
+		loader = new Loader();
+		
+		LoaderManager::getInstance()->setLoader(loader);
+		manager = new Manager();
+		running = true;
 	}
 
-	//Floor* floor = new Floor;
-	//floor->generateRooms(nullptr, false);
-	//floor->updateMap();
-	//floor->printFloor();
-	//string input;
-	//cout << "press enter to exit...";
-	//cin >> input;
+	while (running){
+		string input;
+		cout << "Please enter an string value: ";
+
+		cin >> input;
+		if (input != "exit"){
+			//cout << "The value you entered is " << input << endl;
+			cout << manager->handleInput(input) << endl;
+		}
+		else{
+			cout << "Exit the game " << endl;
+			chrono::milliseconds dura(1000);
+			this_thread::sleep_for(dura);
+			
+			running = false; //stop the game loop
+
+			delete loader;
+			delete manager;
+		}
+	}
 
 	_CrtDumpMemoryLeaks();
 }

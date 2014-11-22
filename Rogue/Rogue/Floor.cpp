@@ -59,6 +59,7 @@ Floor::Floor(int level, int rseed)
 Floor::~Floor()
 {
 	delete[] *m_Rooms;
+	m_StartingRoom = NULL;
 }
 
 void Floor::generateRooms(Room* roomAbove, bool last)
@@ -96,6 +97,7 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 			{
 				start = true;
 				m_Rooms[rows][column]->setStart();
+				m_StartingRoom = m_Rooms[rows][column];
 			}
 
 			randomNr = rand() % 101;
