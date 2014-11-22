@@ -1,13 +1,12 @@
 #include "MenuRoom.h"
+#include "MenuFactory.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-MenuRoom::MenuRoom()
+MenuRoom::MenuRoom(Room* room)
 {
-	m_Text = "You're in a ";
-
 	m_Options.push_back("fight");
 	m_Options.push_back("run");
 	m_Options.push_back("search");
@@ -15,10 +14,8 @@ MenuRoom::MenuRoom()
 	m_Options.push_back("items");
 	m_Options.push_back("map");
 	
-	// old code
-	/*printf("In MenuRoom state \n");
-	printf("Je staat in kamer met in het midden een tafel met...\n");
-	printf("vecht | vlucht | zoek | rust... \n");*/
+	room->printRoomText();
+	printOptions();
 }
 
 
@@ -26,45 +23,59 @@ MenuRoom::~MenuRoom()
 {
 }
 
-void MenuRoom::handleInput(string input){
-	printf("MenuRoom handled the input \n");
-	
-	if (input == "vecht"){
-		fight();
-	}else if (input == "vlucht"){
-		flee();
-	}else if (input == "zoek"){
-		search();
-	}else if (input == "rust uit"){
-		rest();
-	}else if (input == "bekijk spullen"){
-		inventory();
-	}else if (input == "bekijk kaart"){
-		map();
+void MenuRoom::handleInput(MenuFactory* context, string input)
+{
+	if (input == "fight")
+	{
+		context->setMenu(context->getAttackMenu());
+	}
+	else if (input == "run")
+	{
+		context->setMenu(context->getFlightMenu());
+	}
+	else if (input == "search")
+	{
+		search(context);
+	}
+	else if (input == "rest")
+	{
+		context->getDungeon()->getPlayer()->rest();
+		printOptions();
+	}
+	else if (input == "items")
+	{
+		context->setMenu(context->getInventoryMenu());
+	}
+	else if (input == "map"){
+		map(context);
 	}
 	else{
-		printf("Probeer het nog eens! \n");
+		cout << "Choose another option please.\n\n" << endl;
 	}
 }
 
-void MenuRoom::fight(){
-
-}
-void MenuRoom::flee(){
-
-}
-void MenuRoom::search(){
-
+void MenuRoom::search(MenuFactory* context)
+{
+	context->getDungeon()->getCurrentRoom()->search();
+	printOptions();
 }
 void MenuRoom::rest(){
 
 }
-void MenuRoom::inventory(){
 
+void MenuRoom::map(MenuFactory* context)
+{
+	context->getDungeon()->getCurrentFloor()->printFloor();
+	printOptions();
 }
-void MenuRoom::map(){
 
-}
-void MenuRoom::characterInfo(){
-
+void MenuRoom::printOptions()
+{
+	string s = "";
+	for (vector<string>::iterator it = m_Options.begin(); it != m_Options.end(); it++) {
+		s += *it + "|";
+	}
+	string ret = s.substr(0, ret.size() - 1);
+	
+	cout << ret << endl << endl;
 }

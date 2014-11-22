@@ -1,14 +1,13 @@
 #pragma once
 #include "Menu.h"
-class MenuFlight :
+class MenuAttack :
 	public Menu
 {
 public:
-	MenuFlight();
-	virtual ~MenuFlight();
-
-
+	MenuAttack();
+	virtual ~MenuAttack();
+	
 	void handleInput(MenuFactory* context, string input);
-	void printOptions();
+	void printOptions(){}
 };
 

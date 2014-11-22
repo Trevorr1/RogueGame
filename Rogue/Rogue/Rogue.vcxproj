@@ -72,8 +72,11 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuAttack.cpp" />
+    <ClCompile Include="MenuFactory.cpp" />
     <ClCompile Include="MenuFight.cpp" />
     <ClCompile Include="MenuFlight.cpp" />
+    <ClCompile Include="MenuInventory.cpp" />
     <ClCompile Include="MenuRoom.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -89,8 +92,11 @@
     <ClInclude Include="LoaderManager.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuAttack.h" />
+    <ClInclude Include="MenuFactory.h" />
     <ClInclude Include="MenuFight.h" />
     <ClInclude Include="MenuFlight.h" />
+    <ClInclude Include="MenuInventory.h" />
     <ClInclude Include="MenuRoom.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />

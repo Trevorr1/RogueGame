@@ -8,7 +8,8 @@ public:
 	MenuFight();
 	virtual ~MenuFight();
 
-	void handleInput(string input);
+	void handleInput(MenuFactory* context, string input);
+	void printOptions() {}
 	void attack();
 	void flee();
 	void drink();

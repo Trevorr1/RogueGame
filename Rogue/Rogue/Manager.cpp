@@ -73,7 +73,7 @@ string Manager::handleRoomInput(string input)
 	else if (input == "search"){
 		if (!dungeon->getCurrentRoom()->getSearched())
 		{
-			ret += dungeon->getCurrentRoom()->search();
+			//ret += dungeon->getCurrentRoom()->search();
 			dungeon->getPlayer()->pickUp(dungeon->getCurrentRoom()->getItem());
 			dungeon->getCurrentRoom()->takeItem();
 		}
