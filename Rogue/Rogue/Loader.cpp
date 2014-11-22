@@ -79,7 +79,7 @@ void Loader::loadRoomTraits(){
 	ifstream input_file(textFileClass); // stack-based file object; deze constructie opent de file voor lezen
 	string line;
 
-	int i = 0;
+	std::vector<Item*>::size_type i = 0;
 	//srand(time(0));
 
 	while (getline(input_file, line)) {
@@ -135,7 +135,7 @@ void Loader::loadTraps(){
 		bool isDmg = true;
 
 		//if line contains == true
-		for (int i = 0; i < vectorTrapKinds.size(); i++){
+		for (std::vector<Item*>::size_type i = 0; i < vectorTrapKinds.size(); i++){
 			if (line.find(vectorTrapKinds.at(i)) != std::string::npos){
 				trapKind = line;
 				

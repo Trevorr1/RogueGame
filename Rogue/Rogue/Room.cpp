@@ -167,17 +167,17 @@ void Room::generateOpponents(int level){
 		chanceOpponents.push_back(2);
 		chanceOpponents.push_back(3);
 
-		int randomOpponentsAmount = chanceOpponents.at(rand() % chanceOpponents.size());
+		std::vector<Opponent*>::size_type randomOpponentsAmount = chanceOpponents.at(rand() % chanceOpponents.size());
 
 		/*add random opponents amount to opponents*/
 		if (randomOpponents->size() >= randomOpponentsAmount){
-			for (int i = 0; i < randomOpponentsAmount; i++){
+			for (std::vector<Opponent*>::size_type i = 0; i < randomOpponentsAmount; i++){
 				int random3 = rand() % randomOpponents->size();
 				opponents->push_back(randomOpponents->at(random3));
 			}
 		}
 		else{
-			for (std::vector<Item*>::size_type i = 0; i < randomOpponents->size(); i++){
+			for (std::vector<Opponent*>::size_type i = 0; i < randomOpponents->size(); i++){
 				opponents->push_back(randomOpponents->at(i));
 			}
 		}
@@ -196,7 +196,7 @@ void Room::generateEndOpponents(int level, int monsterSize){
 	/*End bosses to randomOppenents*/
 	if (level == 20){
 
-		for (std::vector<Item*>::size_type i = 0; i < loaderOpponents->size(); i++){
+		for (std::vector<Opponent*>::size_type i = 0; i < loaderOpponents->size(); i++){
 			/*find opponents lv 11*/
 			if (loaderOpponents->at(i)->getLevel() == leveldivided / 2 + 1){
 				randomOpponents->push_back(loaderOpponents->at(i));
