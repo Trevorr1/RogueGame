@@ -28,6 +28,8 @@ void Manager::init(){
 	dungeon->setCurrentFloor(dungeon->getFloors()->at(0));
 	dungeon->setCurrentRoom(dungeon->getFloors()->at(0)->getStartingRoom());
 	m_Menu = RoomMenu;
+
+	cout << dungeon->getCurrentRoom()->printRoomText() << endl;
 }
 
 

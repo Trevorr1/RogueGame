@@ -47,11 +47,11 @@ char* Room::printRoom()
 string Room::printRoomText()
 {
 	string desc = "Description: You're in a ";
-	desc += m_Traits.at(0) + " " + m_Traits.at(3);
-	desc += "Room that is ";
+	desc += m_Traits.at(0) + " " + m_Traits.at(1); //desc += m_Traits.at(0) + " " + m_Traits.at(3);
+	desc += " room that is ";
 	desc += m_Traits.at(2);
-	desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
-	desc += m_Traits.at(6) + "\n\n";
+	desc += ". It's " + m_Traits.at(3) + " and" + m_Traits.at(4) + ".\n"; //desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
+	desc += m_Traits.at(5) + "\n\n"; //desc += m_Traits.at(6);
 
 	// print room exits
 	string exits = "Exits: " + printExits() + "\n\n";
