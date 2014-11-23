@@ -1,7 +1,7 @@
 #pragma once
-#include <iostream>
 #include <vector>
-//#include "MenuFactory.h"
+#include <string>
+#include <iostream>
 using namespace std;
 class MenuFactory;
 class Menu
@@ -12,7 +12,7 @@ public:
 
 	virtual void handleInput(MenuFactory* context, string input) = 0;
 	
-	virtual void printOptions() = 0;
+	void printOptions();
 
 protected:
 	vector<string> m_Options;

@@ -1,18 +1,16 @@
 #include "MenuFight.h"
+#include "MenuFactory.h"
+
+using namespace std;
 
 MenuFight::MenuFight()
 {
-	printf("In MenuFight state \n");
-	printf("Je bent in een gevecht met: \n");
-	printf("Rat 1 ...\n");
-	printf("Rat 2 ...\n \n");
+	m_Options.push_back("attack");
+	m_Options.push_back("run");
+	m_Options.push_back("drink");
+	m_Options.push_back("use");
 
-	printf("Acties tegenstanders: \n");
-	printf("Rat 2 bijt... \n \n");
-	printf("Je hebt nog 15 van 18 levenspunten over \n");
-	printf("Wat doe je? \n");
-	printf("[aanval|vlucht|drink drankje|gebruik object] \n");
-	printf("Actie: \n");
+	printOptions();
 }
 
 
@@ -20,21 +18,31 @@ MenuFight::~MenuFight()
 {
 }
 
-void MenuFight::handleInput(MenuFactory* context, string input) {
-	printf("MenuFight handled the input \n");
+void MenuFight::handleInput(MenuFactory* context, string input) 
+{	
+	if (input == "attack")
+	{
+		context->setMenu(context->getAttackMenu());
+	}
+	else if (input == "run")
+	{
+		context->setMenu(context->getFlightMenu());
+	}
+	else if (input == "drink")
+	{
+		context->setMenu(context->getDrinkMenu());
+	}
+	else if (input == "use")
+	{
+		context->setMenu(context->getUseObjectMenu());
+	}
+	else if (input == "items")
+	{
+		context->setMenu(context->getInventoryMenu());
+	}
+	else{
+		cout << "Choose another option please.\n\n" << endl;
+	}
 }
 
 
-void MenuFight::attack(){
-
-}
-
-void MenuFight::flee(){
-
-}
-void MenuFight::drink(){
-
-}
-void MenuFight::useObject(){
-
-}

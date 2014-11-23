@@ -9,10 +9,9 @@ public:
 	virtual ~MenuFight();
 
 	void handleInput(MenuFactory* context, string input);
-	void printOptions() {}
 	void attack();
 	void flee();
-	void drink();
+	void drink(MenuFactory* context);
 	void useObject();
 };
 

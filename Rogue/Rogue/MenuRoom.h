@@ -1,6 +1,6 @@
 #pragma once
 #include "Menu.h"
-#include "Room.h"
+class Room;
 class MenuRoom :
 	public Menu
 {
@@ -10,15 +10,8 @@ public:
 	virtual ~MenuRoom();
 
 	void handleInput(MenuFactory* context, string input);
-	void fight();
-	void flee();
 	void search(MenuFactory* context);
-	void rest();
-	void inventory();
 	void map(MenuFactory* context);
-	void characterInfo();
-
-	void printOptions();
 
 
 	//Optional:

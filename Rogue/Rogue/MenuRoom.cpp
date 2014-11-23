@@ -1,7 +1,6 @@
 #include "MenuRoom.h"
 #include "MenuFactory.h"
-#include <iostream>
-#include <string>
+#include "Room.h"
 
 using namespace std;
 
@@ -59,23 +58,9 @@ void MenuRoom::search(MenuFactory* context)
 	context->getDungeon()->getCurrentRoom()->search();
 	printOptions();
 }
-void MenuRoom::rest(){
-
-}
 
 void MenuRoom::map(MenuFactory* context)
 {
 	context->getDungeon()->getCurrentFloor()->printFloor();
 	printOptions();
-}
-
-void MenuRoom::printOptions()
-{
-	string s = "";
-	for (vector<string>::iterator it = m_Options.begin(); it != m_Options.end(); it++) {
-		s += *it + "|";
-	}
-	string ret = s.substr(0, ret.size() - 1);
-	
-	cout << ret << endl << endl;
 }

@@ -72,10 +72,16 @@
     <ClCompile Include="MenuAttack.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="MenuFactory.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MenuUseObject.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="MenuInventory.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuFactory.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuDrink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -128,10 +134,16 @@
     <ClInclude Include="MenuFlight.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="MenuFactory.h">
+    <ClInclude Include="MenuInventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuInventory.h">
+    <ClInclude Include="MenuFactory.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUseObject.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuDrink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
