@@ -15,7 +15,7 @@ public:
 	~Room();
 
 	char* printRoom();
-	string printRoomText();
+	void printRoomText();
 	string printOpponents();
 	string printOpponentsFight();
 	string printExits();

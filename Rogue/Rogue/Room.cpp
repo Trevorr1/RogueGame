@@ -44,7 +44,7 @@ char* Room::printRoom()
 	else return "_";
 }
 
-string Room::printRoomText()
+void Room::printRoomText()
 {
 	string desc = "Description: You're in a ";
 	desc += m_Traits.at(0) + " " + m_Traits.at(1); //desc += m_Traits.at(0) + " " + m_Traits.at(3);
@@ -58,8 +58,8 @@ string Room::printRoomText()
 	
 	// print enemies
 	string enemies = "Present: " + printOpponents() + "\n\n";
-
-	return desc + exits + enemies + "\n\n";
+	cout << desc << " " << exits << " " << enemies << endl << endl;
+	//return desc + exits + enemies + "\n\n";
 }
 
 string Room::printOpponents()
