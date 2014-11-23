@@ -28,6 +28,8 @@ void Manager::init(){
 	dungeon->setCurrentFloor(dungeon->getFloors()->at(0));
 	dungeon->setCurrentRoom(dungeon->getFloors()->at(0)->getStartingRoom());
 	m_Menu = RoomMenu;
+
+	dungeon->getCurrentRoom()->printRoomText();
 }
 
 
@@ -212,7 +214,7 @@ string Manager::printText()
 	switch (m_Menu)
 	{
 	case RoomMenu:
-		ret += dungeon->getCurrentRoom()->printRoomText() + "What do you do?\n\n";
+		//ret += dungeon->getCurrentRoom()->printRoomText() + "What do you do?\n\n";
 		ret += printOptions();
 		break;
 	case FightMenu:
