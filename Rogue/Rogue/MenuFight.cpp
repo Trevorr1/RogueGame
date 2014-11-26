@@ -26,7 +26,7 @@ void MenuFight::handleInput(MenuFactory* context, string input)
 	}
 	else if (input == "run")
 	{
-		context->setMenu(context->getFlightMenu());
+		context->setMenu(context->getFlightMenu(context->getDungeon()->getCurrentRoom()));
 	}
 	else if (input == "drink")
 	{

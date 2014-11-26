@@ -22,20 +22,24 @@ void Manager::init(){
 	//create Dungeon and start at lv 1 (according to the code lv 0)
 	int rseed = 5;
 	dungeon = new Dungeon(5);
-	dungeon->getFloors()->at(0)->updateMap();
-	dungeon->getFloors()->at(0)->printFloor();
+	//dungeon->getFloors()->at(0)->updateMap();
+	//dungeon->getFloors()->at(0)->printFloor();
 
 	dungeon->setCurrentFloor(dungeon->getFloors()->at(0));
 	dungeon->setCurrentRoom(dungeon->getFloors()->at(0)->getStartingRoom());
-	m_Menu = RoomMenu;
+	//m_Menu = RoomMenu;
 
-	dungeon->getCurrentRoom()->printRoomText();
+	MenuFactory::getInstance()->setDungeon(dungeon);
+	MenuFactory::getInstance()->setMenu(MenuFactory::getInstance()->getRoomMenu(dungeon->getCurrentRoom()));
+	//dungeon->getCurrentRoom()->printRoomText();
 }
 
 
-string Manager::handleInput(string input)
+void Manager::handleInput(string input)
 {
-	string ret = "";
+	MenuFactory::getInstance()->handleInput(input);
+
+	/*string ret = "";
 	switch (m_Menu)
 	{
 	case RoomMenu:
@@ -58,7 +62,7 @@ string Manager::handleInput(string input)
 		ret += handleAttackInput(input);
 		break;
 	}
-	return ret + "\n\n";
+	return ret + "\n\n";*/
 }
 
 string Manager::handleRoomInput(string input)

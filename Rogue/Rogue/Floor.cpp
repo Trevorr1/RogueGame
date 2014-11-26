@@ -115,8 +115,8 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 
 
 			int north = rows - 1;
-			int east = column - 1;
-			int west = column + 1;
+			int east = column + 1;
+			int west = column - 1;
 			int south = rows + 1;
 
 			// setting the north room...if odds allow

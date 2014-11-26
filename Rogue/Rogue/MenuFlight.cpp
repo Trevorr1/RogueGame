@@ -47,11 +47,13 @@ void MenuFlight::handleInput(MenuFactory* context, string input)
 		{
 			nextMove = context->getDungeon()->getCurrentRoom()->getStairDown();
 		}
+		context->getDungeon()->getCurrentRoom()->setVisited();
 		context->getDungeon()->setCurrentRoom(nextMove);
 		context->setMenu(context->getRoomMenu(nextMove));
 	}
 	else {
 		cout << "Choose another option please." << endl << endl;
+		printOptions();
 	}
 }
 

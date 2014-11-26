@@ -8,6 +8,8 @@
 #include "Opponent.h"
 #include "Room.h"
 #include "Loader.h"
+#include "MenuFactory.h"
+
 
 class Manager
 {
@@ -20,7 +22,7 @@ public:
 	void saveAll();
 	void loadAll();
 
-	string handleInput(string input);
+	void handleInput(string input);
 	string handleRoomInput(string input);
 	string handleFightInput(string input);
 	string handleFleeInput(string input);

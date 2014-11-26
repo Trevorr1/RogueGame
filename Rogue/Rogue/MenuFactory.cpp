@@ -1,5 +1,17 @@
 #include "MenuFactory.h"
 
+// Allocating and initializing GlobalClass's
+// static data member.  The pointer is being
+// allocated - not the object inself.
+MenuFactory * MenuFactory::_instance = 0;
+
+MenuFactory* MenuFactory::getInstance()
+{
+	if (_instance == NULL){
+		_instance = new MenuFactory;
+	}
+	return _instance;
+}
 
 MenuFactory::MenuFactory()
 {

@@ -30,7 +30,7 @@ void MenuRoom::handleInput(MenuFactory* context, string input)
 	}
 	else if (input == "run")
 	{
-		context->setMenu(context->getFlightMenu());
+		context->setMenu(context->getFlightMenu(context->getDungeon()->getCurrentRoom()));
 	}
 	else if (input == "search")
 	{
@@ -61,6 +61,7 @@ void MenuRoom::search(MenuFactory* context)
 
 void MenuRoom::map(MenuFactory* context)
 {
+	context->getDungeon()->getCurrentFloor()->updateMap();
 	context->getDungeon()->getCurrentFloor()->printFloor();
 	printOptions();
 }

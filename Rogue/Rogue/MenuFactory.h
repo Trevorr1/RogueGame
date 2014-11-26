@@ -12,7 +12,7 @@
 class MenuFactory
 {
 public:
-	MenuFactory();
+	static MenuFactory * getInstance(); //use: MenuFactory::getInstance()
 	virtual ~MenuFactory();
 
 	void handleInput(string input);
@@ -21,7 +21,8 @@ public:
 	void setMenu(Menu* next);
 
 	MenuAttack* getAttackMenu() { return new MenuAttack(); }
-	MenuFlight* getFlightMenu() { return new MenuFlight(); }
+	//MenuFlight* getFlightMenu() { return new MenuFlight(); }
+	MenuFlight* getFlightMenu(Room* room) { return new MenuFlight(room); }
 	MenuFight* getFightMenu() { return new MenuFight(); }
 	MenuRoom* getRoomMenu(Room* room) { return new MenuRoom(room); }
 	MenuInventory* getInventoryMenu() { return new MenuInventory(); }
@@ -29,9 +30,11 @@ public:
 	MenuDrink* getDrinkMenu() { return new MenuDrink(); }
 
 	Dungeon* getDungeon() { return m_Dungeon; }
-
+	void setDungeon(Dungeon* dungeon){ m_Dungeon = dungeon; }
 
 private:
+	static MenuFactory * _instance;
+	MenuFactory();
 	Menu* m_Current;
 	Dungeon* m_Dungeon;
 };

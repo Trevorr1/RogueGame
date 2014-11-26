@@ -5,9 +5,8 @@
 #include <thread>
 #include "Player.h"
 #include "MenuFight.h"
-#include "Menu.h"
-#include "MenuRoom.h"
 #include "Floor.h"
+#include "MenuFactory.h"
 #ifdef _DEBUG
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -37,6 +36,7 @@ int main(int argc, const char* argv[])
 		loader = new Loader();
 		
 		LoaderManager::getInstance()->setLoader(loader);
+		MenuFactory::getInstance();	//create MenuFactory
 		manager = new Manager();
 		running = true;
 	}
@@ -48,7 +48,7 @@ int main(int argc, const char* argv[])
 		cin >> input;
 		if (input != "exit"){
 			//cout << "The value you entered is " << input << endl;
-			cout << manager->handleInput(input) << endl;
+			manager->handleInput(input);
 		}
 		else{
 			cout << "Exit the game " << endl;
