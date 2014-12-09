@@ -61,7 +61,7 @@ void MenuRoom::search(MenuFactory* context)
 
 void MenuRoom::map(MenuFactory* context)
 {
-	context->getDungeon()->getCurrentFloor()->updateMap();
+	context->getDungeon()->getCurrentFloor()->updateMap(context->getDungeon()->getCurrentRoom());
 	context->getDungeon()->getCurrentFloor()->printFloor();
 	printOptions();
 }

@@ -7,20 +7,22 @@
 #include "MenuFight.h"
 #include "Floor.h"
 #include "MenuFactory.h"
-#ifdef _DEBUG
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
-#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
-#define new DEBUG_NEW
-#endif
+//#ifdef _DEBUG
+//#define _CRTDBG_MAP_ALLOC
+//#include <stdlib.h>
+//#include <crtdbg.h>
+//#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
+//#define new DEBUG_NEW
+//#endif
+
+//#include <vld.h>
 
 using namespace std;
 
 int main(int argc, const char* argv[])
 {
 	/*printf("\nHello World\n\n"); */
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	Loader* loader = NULL;
 	Manager* manager = NULL;
@@ -62,6 +64,6 @@ int main(int argc, const char* argv[])
 		}
 	}
 
-	_CrtDumpMemoryLeaks();
+	//_CrtDumpMemoryLeaks();
 }
 

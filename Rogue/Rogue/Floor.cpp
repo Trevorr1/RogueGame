@@ -58,7 +58,17 @@ Floor::Floor(int level, int rseed)
 
 Floor::~Floor()
 {
-	delete[] *m_Rooms;
+	//delete[] *m_Rooms;
+
+	//better deleting
+	for (int i = 0; i < 10; i++)
+	{
+		for (int i2 = 0; i2 < 10; i2++)
+		{
+			delete m_Rooms[i][i2];
+		}
+	}
+
 	m_StartingRoom = NULL;
 }
 
@@ -264,7 +274,7 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 	}
 }
 
-void Floor::updateMap()
+void Floor::updateMap(Room* currentRoom)
 {
 	for (int rows = 0; rows < SIZE; rows++)
 	{
@@ -290,6 +300,10 @@ void Floor::updateMap()
 					m_Map[(rows * 2) + 1][column * 2] = "|";
 				}
 
+			}
+			//check for CurrentRoom
+			if (m_Rooms[rows][column] == currentRoom && m_Map[rows * 2][column * 2] != "S"){
+				m_Map[rows * 2][column * 2] = "C";
 			}
 		}
 	}

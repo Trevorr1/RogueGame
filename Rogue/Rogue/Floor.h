@@ -16,7 +16,7 @@ public:
 	virtual ~Floor();
 
 	void generateRooms(Room* roomAbove, bool last);
-	void updateMap();
+	void updateMap(Room* currentRoom);
 	void printFloor();
 
 	void setStairUp(Room* up);
