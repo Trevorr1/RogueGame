@@ -20,6 +20,7 @@ MenuFactory::MenuFactory()
 
 MenuFactory::~MenuFactory()
 {
+	delete m_Current;
 }
 
 void MenuFactory::handleInput(string input)

@@ -63,9 +63,9 @@ Floor::~Floor()
 	//better deleting
 	for (int i = 0; i < 10; i++)
 	{
-		for (int i2 = 0; i2 < 10; i2++)
+		for (int j = 0; j < 10; j++)
 		{
-			delete m_Rooms[i][i2];
+			delete m_Rooms[i][j];
 		}
 	}
 

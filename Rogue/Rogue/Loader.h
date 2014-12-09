@@ -47,7 +47,7 @@ private:
 
 	vector <string> vectorTrapKinds;
 	vector<Trap*>* traps;
-	vector<PoisonTrap*>* trap_poison;
+	//vector<PoisonTrap*>* trap_poison;
 
 	vector<Opponent*>* opponents;
 

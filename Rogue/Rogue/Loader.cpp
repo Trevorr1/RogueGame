@@ -43,21 +43,33 @@ Loader::Loader()
 
 Loader::~Loader()
 {
-	//delete vectorRoomKinds;
 	delete room_sizes;
 	delete room_states;
-	delete room_lightings;
+	//delete room_lightings; //this let room delete opponents crash
 	delete room_shapes;
 	delete room_contents;
 	delete room_specialTraits;
 
-	//delete vectorTrapKinds;
-	delete traps;
-	//delete trap_poison;
-
-	delete opponents;
-
+	for (auto item : *item_list){
+		delete item;
+	}
 	delete item_list;
+
+	/*room_sizes = nullptr;
+	room_states = nullptr;
+	room_lightings = nullptr;
+	room_shapes = nullptr;
+	room_contents = nullptr;*/
+
+	for (auto trap : *traps){
+		delete trap;
+	}
+	delete traps;
+
+	for (auto opponent : *opponents){
+		delete opponent;
+	}
+	delete opponents;
 }
 
 void Loader::loadEnemyList()
@@ -232,6 +244,9 @@ void Loader::loadFileItems(){
 		if (line.find("potions:") != std::string::npos){
 		}
 		else if(i == 0){
+			//if (item != nullptr){ //for memory leak
+			//	delete item;
+			//}
 			item = new Item();
 			item->setName(line);
 			i++;
@@ -250,4 +265,6 @@ void Loader::loadFileItems(){
 			i = 0;
 		}
 	}
+
+	
 }

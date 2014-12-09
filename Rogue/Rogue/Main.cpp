@@ -15,7 +15,7 @@
 //#define new DEBUG_NEW
 //#endif
 
-//#include <vld.h>
+#include <vld.h>
 
 using namespace std;
 
@@ -24,8 +24,8 @@ int main(int argc, const char* argv[])
 	/*printf("\nHello World\n\n"); */
 	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	Loader* loader = NULL;
-	Manager* manager = NULL;
+	Loader* loader = nullptr;
+	Manager* manager = nullptr;
 
 	bool running = false;
 
@@ -59,7 +59,11 @@ int main(int argc, const char* argv[])
 			
 			running = false; //stop the game loop
 
+			//Destruction
+			delete LoaderManager::getInstance();
 			delete loader;
+			delete MenuFactory::getInstance();
+
 			delete manager;
 		}
 	}

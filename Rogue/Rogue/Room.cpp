@@ -25,6 +25,13 @@ Room::Room(int level, bool endBossRoom, int rseed)
 Room::~Room()
 {
 	delete m_Opponents;
+
+	/*if (m_Item !=nullptr){
+		m_Item = nullptr;
+	}
+	if (m_Trap != nullptr){
+		m_Trap = nullptr;
+	}*/
 }
 
 char* Room::printRoom()

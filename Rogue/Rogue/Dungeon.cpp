@@ -58,8 +58,14 @@ Dungeon::Dungeon(int rseed)
 Dungeon::~Dungeon()
 {
 	delete m_Player;
-	for (vector<Floor*>::iterator it = m_Floors->begin(); it != m_Floors->end(); it++)
-		delete (*it);
+	/*for (vector<Floor*>::iterator it = m_Floors->begin(); it != m_Floors->end(); it++)
+		delete (*it);*/
+
+	for (auto floor : *m_Floors){
+		delete floor;
+	}	
+
+	delete m_Floors;
 }
 
 void Dungeon::setCurrentFloor(Floor* current)
