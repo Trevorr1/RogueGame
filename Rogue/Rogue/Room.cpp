@@ -25,13 +25,15 @@ Room::Room(int level, bool endBossRoom, int rseed)
 Room::~Room()
 {
 	delete m_Opponents;
-
+	//m_Opponents = nullptr;
 	/*if (m_Item !=nullptr){
 		m_Item = nullptr;
 	}
 	if (m_Trap != nullptr){
 		m_Trap = nullptr;
 	}*/
+	m_Trap = nullptr;
+	 m_Item = nullptr;
 }
 
 char* Room::printRoom()
@@ -140,7 +142,7 @@ void Room::generateTraits(){
 	addTrait(content);
 	addTrait(special);
 
-	loader = nullptr;
+	//loader = nullptr;
 }
 void Room::generateOpponents(int level){
 	vector<Opponent*>* loaderOpponents = LoaderManager::getInstance()->getLoader()->getOpponents();
@@ -190,6 +192,7 @@ void Room::generateOpponents(int level){
 		}
 
 	loaderOpponents = nullptr;
+	//randomOpponents->clear();
 	delete randomOpponents;
 }
 
@@ -226,6 +229,7 @@ void Room::generateEndOpponents(int level, int monsterSize){
 	}
 	
 	delete randomOpponents;
+	loaderOpponents = nullptr;
 }
 
 void Room::setTrap(int level){
@@ -270,6 +274,7 @@ void Room::generateItem(){
 	if (randBool == 1){
 	m_Item = items->at(rand() % items->size());
 }
+	items = nullptr;
 }
 
 void Room::addTrait(string trait)

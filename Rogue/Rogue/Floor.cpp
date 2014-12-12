@@ -4,21 +4,21 @@
 
 Floor::Floor()
 {
-	for (int rows = 0; rows < SIZE; rows++)
-	{
-		for (int column = 0; column < SIZE; column++)
-		{
-			m_Rooms[rows][column] = new Room();
-		}
-	}
+	//for (int rows = 0; rows < SIZE; rows++)
+	//{
+	//	for (int column = 0; column < SIZE; column++)
+	//	{
+	//		//m_Rooms[rows][column] = new Room();
+	//	}
+	//}
 
-	for (int rows = 0; rows < (SIZE * 2); rows++)
-	{
-		for (int column = 0; column < (SIZE * 2); column++)
-		{
-			m_Map[rows][column] = " ";
-		}
-	}
+	//for (int rows = 0; rows < (SIZE * 2); rows++)
+	//{
+	//	for (int column = 0; column < (SIZE * 2); column++)
+	//	{
+	//		m_Map[rows][column] = " ";
+	//	}
+	//}
 
 }
 
@@ -59,13 +59,18 @@ Floor::Floor(int level, int rseed)
 Floor::~Floor()
 {
 	//delete[] *m_Rooms;
-
 	//better deleting
 	for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			delete m_Rooms[i][j];
+			if (m_Rooms[i][j] != m_Rooms[0][0]){
+				delete m_Rooms[i][j];
+				m_Rooms[i][j] = nullptr;
+			}
+			else{
+				//delete m_Rooms[i][j]->getOpponents();//wtf
+			}
 		}
 	}
 

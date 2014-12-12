@@ -45,11 +45,11 @@ Loader::~Loader()
 {
 	delete room_sizes;
 	delete room_states;
-	//delete room_lightings; //this let room delete opponents crash
-	delete room_shapes;
+	delete room_lightings; //this let room delete opponents crash , this fckin' frees memory of m_rooms[0][0] 
+ 	delete room_shapes;
 	delete room_contents;
 	delete room_specialTraits;
-
+	room_lightings = nullptr;
 	for (auto item : *item_list){
 		delete item;
 	}
