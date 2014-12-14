@@ -20,7 +20,7 @@ public:
 	Menu* getMenu() { return m_Current; }
 	void setMenu(Menu* next);
 
-	MenuAttack* getAttackMenu() { return new MenuAttack(); }
+	MenuAttack* getAttackMenu() { return new MenuAttack(m_Dungeon->getCurrentRoom()); }
 	//MenuFlight* getFlightMenu() { return new MenuFlight(); }
 	MenuFlight* getFlightMenu(Room* room) { return new MenuFlight(room); }
 	MenuFight* getFightMenu() { return new MenuFight(); }

@@ -121,8 +121,20 @@ void Room::addOpponent(Opponent* opponent){
 	m_Opponents->push_back(opponent);
 }
 
-vector<Opponent*>* Room::getOpponents(){
-	return m_Opponents;
+void Room::clearCorpses()
+{
+	for (auto it = m_Opponents->cbegin(); it != m_Opponents->cend();)
+	{
+		if (!(*it)->isAlive())
+		{
+			it = m_Opponents->erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+
 }
 
 void Room::generateTraits(){

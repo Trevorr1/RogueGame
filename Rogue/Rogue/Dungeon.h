@@ -23,11 +23,11 @@ public:
 	vector<Floor*>* getFloors(){ return m_Floors; };
 
 
-	string resolveDamageToPlayer();
-	string resolveDamageToBaddies(string baddie);
+	void resolveDamageToPlayer();
+	void resolveDamageToBaddies(string baddie);
 
-	string attackPlayer(Opponent* baddie);
-	string attackBaddie(Opponent* baddie);
+	void attackPlayer(Opponent* baddie);
+	void attackBaddie(Opponent* baddie);
 
 	void save(vector <string *>* vectorSave);
 

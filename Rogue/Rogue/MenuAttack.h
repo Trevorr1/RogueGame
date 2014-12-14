@@ -10,7 +10,7 @@ public:
 	virtual ~MenuAttack();
 	
 	void handleInput(MenuFactory* context, string input);
-	void printOptions(){}
+	void printOptions();
 	void updateOptions(Room* room);
 };
 

@@ -206,7 +206,7 @@ string Manager::handleAttackInput(string input)
 	else
 	{
 		ret += "You have attacked: "+input+ "\n\n";
-		ret += dungeon->resolveDamageToBaddies(input);
+		//ret += dungeon->resolveDamageToBaddies(input);
 	}
 
 	return ret;
@@ -222,11 +222,11 @@ string Manager::printText()
 		ret += printOptions();
 		break;
 	case FightMenu:
-		ret += "You're in a fight with:\n";
+		/*ret += "You're in a fight with:\n";
 		ret += dungeon->getCurrentRoom()->printOpponentsFight() + "\n";
 		ret += "Actions of opponents:\n";
 		ret += dungeon->resolveDamageToPlayer() + "\n";
-		if (dungeon->getPlayer()->isAlive())
+		if (dungeon->getPlayer()->isAlive())*/
 		{
 			ret += "What do you want to do?\n";
 			printOptions();

@@ -15,5 +15,5 @@ void Menu::printOptions()
 	}
 	string ret = s.substr(0, ret.size() - 1);
 
-	cout << ret << endl << endl;
+	cout << ret << "\n\n";
 }

@@ -43,4 +43,5 @@ void Opponent::damage(int dmg)
 {
 	m_CurrentHealth -= dmg;
 	if (m_CurrentHealth < 0) m_Alive = false;
+	cout << m_Name << " has been slain.\n\n";
 }

@@ -89,86 +89,74 @@ Room* Dungeon::getCurrentRoom()
 }
 
 
-string Dungeon::resolveDamageToPlayer()
+void Dungeon::resolveDamageToPlayer()
 {
 	string s = "";
 	vector<Opponent*>* v = m_CurrentRoom->getOpponents();
-
-	for (std::vector<Opponent*>::size_type i = 0; i != v->size(); i++) {
-		s += v->at(i)->getName() + " " + to_string(i + 1) +" ";
-		s+= attackPlayer(v->at(i));
+	for (auto baddie : *v)
+	{
+		attackPlayer(baddie);
 	}
+	/*for (std::vector<Opponent*>::size_type i = 0; i != v->size(); i++) {
+		s += v->at(i)->getName() + " " + to_string(i + 1) +" ";
+		attackPlayer(v->at(i));
+	}*/
 
 	if (m_Player->getCurrentHealth() > 0)
 	{
-		s += "\nYou still have " + to_string(m_Player->getCurrentHealth()) + " out of " + to_string(m_Player->getHealth()) + " hitpoints over.\n\n";
+		cout << "\nYou still have " << to_string(m_Player->getCurrentHealth()) + " out of " + to_string(m_Player->getHealth()) << " hitpoints left.\n\n";
 	}
 	else
 	{
-		s += "\nYour hitpoints have reached zero, you have died.\n";
+		cout << "\nYour hitpoints have reached zero, you have died.\n\n";
 		m_Player->kill();
 	}
-	return s;
 }
 
-string Dungeon::resolveDamageToBaddies(string baddie)
+void Dungeon::resolveDamageToBaddies(string baddie)
 {
 	string ret = "";
 	int toremove = 0;
 	bool done = false;
 
-	for (std::vector<Item*>::size_type i = 0; i != m_CurrentRoom->getOpponents()->size(); i++)
+	for (auto opponent : *m_CurrentRoom->getOpponents())
 	{
-		if (m_CurrentRoom->getOpponents()->at(i)->getName().compare(baddie) == 0)
+		string name = opponent->getName();
+		if (name.compare(baddie) == 0)
 		{
-			ret += attackBaddie(m_CurrentRoom->getOpponents()->at(i));
-		}
-	}
-
-	for (std::vector<Item*>::size_type i = 0; i != m_CurrentRoom->getOpponents()->size(); i++)
-	{
-		if (!m_CurrentRoom->getOpponents()->at(i)->isAlive())
-		{
-			toremove = i;
-			done = true;
+			attackBaddie(opponent);
 			break;
 		}
 	}
-	if (done)
-	{
-		ret += "You have slain " + m_CurrentRoom->getOpponents()->at(toremove)->getName() + ".\n";
-		m_CurrentRoom->getOpponents()->erase(m_CurrentRoom->getOpponents()->begin() + toremove); 
-	}
-	return ret + "\n\n";
+
+	m_CurrentRoom->clearCorpses();
 }
 
-string Dungeon::attackPlayer(Opponent* baddie)
+void Dungeon::attackPlayer(Opponent* baddie)
 {
 	int dmg = baddie->getDmg() - m_Player->getDef();
 	string s = "";
 	if (dmg < 0)
-		s += "attacks but misses.\n";
+		cout << baddie->getName() << " attacks but misses.\n\n";
 	else
 	{
 
-		s += "attacks and deals " + to_string(dmg) +" damage.\n";
+		cout << baddie->getName() << "attacks and deals " << to_string(dmg) << " damage to you.\n\n";
 		m_Player->damage(dmg);
 	}
-	return s;
 }
 
-string Dungeon::attackBaddie(Opponent* baddie)
+void Dungeon::attackBaddie(Opponent* baddie)
 {
 	int dmg = m_Player->getAtk() - baddie->getDef();
 	string s = "";
 	if (dmg < 0)
-		s += "Your attack but missed.\n";
+		cout << "Your attack missed.\n";
 	else
 	{
-		s += "Hit! You deal " + to_string(dmg) + " damage to" + baddie->getName() +".\n";
+		cout << "Hit! You deal "<< to_string(dmg) << " damage to" << baddie->getName() <<".\n\n";
 		baddie->damage(dmg);
 	}
-	return s;
 }
 
 void Dungeon::save(vector <string*>* vectorSave){
