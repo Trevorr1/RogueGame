@@ -23,18 +23,26 @@ void MenuAttack::handleInput(MenuFactory* context, string input)
 	{
 		if (std::find(m_Options.begin(), m_Options.end(), input) != m_Options.end())
 		{
-			cout << "You have attacked: " << input << "\n\n";
-			context->getDungeon()->resolveDamageToBaddies(input);
-			if (v->empty())
+			if (input.compare("run") == 0)
 			{
-				cout << "There are no enemies left in this room.\n\n";
+				cout << "You ran from the enemies...\n\n";
 				context->setMenu(context->getRoomMenu(context->getDungeon()->getCurrentRoom()));
 			}
-			else
+			else //player chose to fight
 			{
-				context->getDungeon()->resolveDamageToPlayer();
-				updateOptions(context->getDungeon()->getCurrentRoom());
-				printOptions();
+				cout << "You have attacked: " << input << "\n\n";
+				context->getDungeon()->resolveDamageToBaddies(input);
+				if (v->empty())
+				{
+					cout << "There are no enemies left in this room.\n\n";
+					context->setMenu(context->getRoomMenu(context->getDungeon()->getCurrentRoom()));
+				}
+				else
+				{
+					context->getDungeon()->resolveDamageToPlayer();
+					updateOptions(context->getDungeon()->getCurrentRoom());
+					printOptions();
+				}
 			}
 		}
 		else
@@ -45,6 +53,7 @@ void MenuAttack::handleInput(MenuFactory* context, string input)
 	}
 	else // no opponents in this room
 	{
+
 		cout << "There are no enemies in this room.\n\n";
 		context->getRoomMenu(context->getDungeon()->getCurrentRoom());
 	}
@@ -59,6 +68,7 @@ void MenuAttack::updateOptions(Room* room)
 	{
 		m_Options.push_back(opponent->getName());
 	}
+	m_Options.push_back("run");
 }
 
 void MenuAttack::printOptions()
