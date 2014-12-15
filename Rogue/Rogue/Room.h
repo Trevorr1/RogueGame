@@ -63,7 +63,7 @@ public:
 	vector<Opponent*>* getOpponents();
 
 private:
-	vector<string> m_Traits;
+	vector<string>* m_Traits;
 	vector<Opponent*>* m_Opponents;
 
 	Room *m_North, 

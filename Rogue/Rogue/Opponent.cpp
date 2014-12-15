@@ -4,7 +4,7 @@ using namespace std;
 
 Opponent::Opponent()
 {
-	m_Level = 1;
+	//m_Level = 1;
 }
 
 
@@ -12,6 +12,31 @@ Opponent::~Opponent()
 {
 }
 
+Opponent::Opponent(const Opponent &obj)
+{
+	//cout << "Copy constructor allocating ptr." << endl;
+	//ptr = new int;
+	m_Level = obj.m_Level;
+	m_Atk = obj.m_Atk;
+	m_Health = obj.m_Health;
+	m_Def = obj.m_Def;
+	m_Gains = obj.m_Gains;
+	m_Name = obj.m_Name;
+	//*ptr = *obj.ptr; // copy the value
+}
+
+Opponent::Opponent(const Opponent *obj)
+{
+	//cout << "Copy constructor allocating ptr." << endl;
+	//ptr = new int;
+	m_Level = obj->m_Level;
+	m_Atk = obj->m_Atk;
+	m_Health = obj->m_Health;
+	m_Def = obj->m_Def;
+	m_Gains = obj->m_Gains;
+	m_Name = obj->m_Name;
+	//*ptr = *obj.ptr; // copy the value
+}
 
 
 void Opponent::setOpponent(vector <string>* vectorLoaded)

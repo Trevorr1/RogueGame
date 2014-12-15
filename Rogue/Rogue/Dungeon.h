@@ -1,6 +1,6 @@
 #pragma once
 
-#define DUNGEON_SIZE 1 //20
+#define DUNGEON_SIZE 20 //20
 
 #include "Floor.h"
 #include "Player.h"
