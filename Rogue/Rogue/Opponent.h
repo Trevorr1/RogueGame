@@ -8,6 +8,9 @@ namespace std{
 	public:
 		Opponent();
 		virtual~Opponent();
+		Opponent(const Opponent &obj);
+		Opponent(const Opponent *obj);
+
 
 		int getLevel() { return m_Level; }
 		int getDmg() { return m_Atk; }
