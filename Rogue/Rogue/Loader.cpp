@@ -55,12 +55,6 @@ Loader::~Loader()
 	}
 	delete item_list;
 
-	/*room_sizes = nullptr;
-	room_states = nullptr;
-	room_lightings = nullptr;
-	room_shapes = nullptr;
-	room_contents = nullptr;*/
-
 	for (auto trap : *traps){
 		delete trap;
 	}

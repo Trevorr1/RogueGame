@@ -64,13 +64,8 @@ Floor::~Floor()
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			if (m_Rooms[i][j] != m_Rooms[0][0]){
 				delete m_Rooms[i][j];
 				m_Rooms[i][j] = nullptr;
-			}
-			else{
-				//delete m_Rooms[i][j]->getOpponents();//wtf
-			}
 		}
 	}
 
