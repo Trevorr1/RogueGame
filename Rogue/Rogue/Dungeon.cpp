@@ -115,8 +115,6 @@ void Dungeon::resolveDamageToPlayer()
 
 void Dungeon::resolveDamageToBaddies(string baddie)
 {
-	string ret = "";
-	int toremove = 0;
 	bool done = false;
 
 	for (auto opponent : *m_CurrentRoom->getOpponents())

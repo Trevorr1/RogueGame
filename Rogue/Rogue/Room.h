@@ -20,7 +20,8 @@ public:
 	string printOpponentsFight();
 	string printExits();
 
-	void search();
+	Item* search();
+	void poachRoom();
 
 	void addOpponent(Opponent* opponent);
 	void addTrait(string trait);

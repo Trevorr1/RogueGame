@@ -34,7 +34,7 @@ void MenuFight::handleInput(MenuFactory* context, string input)
 	}
 	else if (input == "use")
 	{
-		context->setMenu(context->getUseObjectMenu());
+		context->setMenu(context->getUseObjectMenu(context->getDungeon()->getPlayer()));
 	}
 	else if (input == "items")
 	{

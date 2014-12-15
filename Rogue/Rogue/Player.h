@@ -15,7 +15,8 @@ public:
 	void rest();
 	void heal(int health);
 
-	string use(string item);
+	void use(string item);
+	void discardUsedItems();
 
 	void pickUp(Item* item);
 	string printStats();
@@ -31,6 +32,8 @@ public:
 	int getDef() { return m_Def; }
 	int getCurrentHealth() { return m_CurrentHealth; }
 	int getHealth() { return m_Health; }
+
+	vector<Item*>* getInventory() { return m_Inventory; }
 
 private:
 	string m_Name;

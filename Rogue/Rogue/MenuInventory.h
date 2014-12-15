@@ -8,6 +8,6 @@ public:
 	virtual ~MenuInventory();
 
 	void handleInput(MenuFactory* context, string input);
-	void printOptions(){}
+	void updateOptions();
 };
 

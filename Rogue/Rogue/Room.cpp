@@ -134,7 +134,6 @@ void Room::clearCorpses()
 			++it;
 		}
 	}
-
 }
 
 void Room::generateTraits(){
@@ -262,20 +261,24 @@ void Room::setTrap(int level){
 	traps = nullptr;
 }
 
-void Room::search()
+Item* Room::search()
 {
 	string ret = "";
 	if (m_Trap != nullptr)
 	{
-		ret += "You found and deactivated a " + m_Trap->getName() + "\n\n";
+		cout << "You found and deactivated a " << m_Trap->getName() << "\n\n";
 		delete m_Trap;
 	}
 	if (m_Item != nullptr)
 	{
-		ret += "You found a " + m_Item->getName() + "\n\n";
+		cout << "You found a " << m_Item->getName() << "\n\n";
 	}
-	// the item needs to be given to the player somehow
-	cout << ret << endl << endl;
+	return m_Item;
+}
+
+void Room::poachRoom()
+{
+	m_Item = nullptr;
 }
 
 void Room::generateItem(){

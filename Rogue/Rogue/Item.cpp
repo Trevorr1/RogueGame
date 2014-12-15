@@ -3,6 +3,7 @@
 
 Item::Item()
 {
+	m_Used = false;
 }
 
 

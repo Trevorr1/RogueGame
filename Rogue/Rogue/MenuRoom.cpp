@@ -55,7 +55,12 @@ void MenuRoom::handleInput(MenuFactory* context, string input)
 
 void MenuRoom::search(MenuFactory* context)
 {
-	context->getDungeon()->getCurrentRoom()->search();
+	auto item = context->getDungeon()->getCurrentRoom()->search();
+	if (item != nullptr)
+	{
+		context->getDungeon()->getPlayer()->pickUp(item);
+		context->getDungeon()->getCurrentRoom()->poachRoom();
+	}
 	printOptions();
 }
 
