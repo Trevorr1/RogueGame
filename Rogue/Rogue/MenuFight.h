@@ -7,7 +7,7 @@ class MenuFight :
 public:
 	MenuFight();
 	virtual ~MenuFight();
-
+	
 	void handleInput(MenuFactory* context, string input);
 	void attack();
 	void flee();

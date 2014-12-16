@@ -15,6 +15,7 @@ namespace std{
 		int getLevel() { return m_Level; }
 		int getDmg() { return m_Atk; }
 		int getDef() { return m_Def; }
+		int getGains() { return m_Gains; }
 
 		bool isAlive() { return m_Alive; }
 

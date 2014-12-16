@@ -77,21 +77,7 @@ void Room::printRoomText()
 	// print enemies
 	string enemies = "Present: " + printOpponents() + "\n\n";
 
-	if (m_StairDown != nullptr){
-		desc += "A downstair found \n\n";
-	}
-	if (m_StairDown != nullptr){
-		desc += "A Upstair found \n\n";
-	}
-
-	string trap = "";
-
-	////trap
-	//if (m_Trap != nullptr){
-	//	trap += "A trap: " + m_Trap->getName() + " is found \n\n";
-	//}
-
-	cout << desc << exits  << enemies << trap << endl << endl;
+	cout << desc << " " << exits << " " << enemies << endl << endl;
 	//return desc + exits + enemies + "\n\n";
 }
 
@@ -145,12 +131,14 @@ void Room::addOpponent(Opponent* opponent){
 	m_Opponents->push_back(opponent);
 }
 
-void Room::clearCorpses()
+int Room::clearCorpses()
 {
+	int exp = 0;
 	for (auto it = m_Opponents->cbegin(); it != m_Opponents->cend();)
 	{
 		if (!(*it)->isAlive())
 		{
+			exp += (*it)->getGains();
 			it = m_Opponents->erase(it);
 		}
 		else
@@ -158,6 +146,7 @@ void Room::clearCorpses()
 			++it;
 		}
 	}
+	return exp;
 }
 
 void Room::generateTraits(){

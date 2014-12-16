@@ -13,6 +13,7 @@ MenuRoom::MenuRoom(Room* room)
 	m_Options.push_back("items");
 	m_Options.push_back("map");
 	
+	room->setVisited();
 	room->printRoomText();
 	printOptions();
 }

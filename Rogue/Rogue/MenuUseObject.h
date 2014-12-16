@@ -10,6 +10,6 @@ public:
 
 	void handleInput(MenuFactory* context, string input);
 	void updateOptions(Player* player);
-	void printOptions();
+	void printOptions(); 
 };
 

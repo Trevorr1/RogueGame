@@ -15,7 +15,7 @@
 //#define new DEBUG_NEW
 //#endif
 
-#include <vld.h>
+//#include <vld.h>
 
 using namespace std;
 
@@ -30,7 +30,7 @@ int main(int argc, const char* argv[])
 	bool running = false;
 
 	cout << "The Rogue Game by Trevorr Marshall & Huan Nguyen" << endl;
-	cout << "Enter play to play" << endl;
+	cout << "Enter <play> to play or enter <exit> at anytime to exit the game." << endl;
 
 	string input;
 	cin >> input;
@@ -55,7 +55,7 @@ int main(int argc, const char* argv[])
 			manager->handleInput(input);
 		}
 		else{
-			cout << "Exit the game " << endl;
+			cout << "Exiting the game " << endl;
 			chrono::milliseconds dura(1000);
 			this_thread::sleep_for(dura);
 			

@@ -9,7 +9,7 @@ public:
 	MenuFlight(Room* room);
 	virtual ~MenuFlight();
 
-
+	
 	void handleInput(MenuFactory* context, string input);
 	void updateOptions(Room* room);
 };

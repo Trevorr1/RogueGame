@@ -85,7 +85,7 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 		{
 			int randomNr = rand() % 101;
 
-			if (!above && roomAbove != nullptr && randomNr > 45)
+			if (!above && roomAbove != nullptr && randomNr < 5)
 			{
 				above = true;
 				m_StairUp = roomAbove;
@@ -95,7 +95,7 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 
 			randomNr = rand() % 101;
 
-			if (!below && randomNr > 45 && !last)
+			if (!below && randomNr == 11 && !last)
 			{
 				below = true;
 				m_StairDown = m_Rooms[rows][column];
@@ -118,10 +118,10 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 				m_Rooms[rows][column]->setEnd();
 			}
 
-			bool northok = (rows != 0);
-			bool eastok = (column != 0);
-			bool westok = (column != SIZE - 1);
-			bool southok = (rows != SIZE - 1);
+			bool northok = (rows > 0);
+			bool eastok = (column < SIZE - 1);
+			bool westok = (column > 0);
+			bool southok = (rows < SIZE - 1);
 
 
 			int north = rows - 1;
@@ -272,6 +272,26 @@ void Floor::generateRooms(Room* roomAbove, bool last)
 			}
 		}
 	}
+	// if the floor has no stairs at all
+	int randomRow = rand() % SIZE;
+	int randomColumn = rand() % SIZE;
+
+	if (!above && roomAbove != nullptr)
+	{
+		above = true;
+		m_StairUp = roomAbove;
+		m_Rooms[randomRow][randomColumn]->setStairUp(roomAbove);
+		roomAbove->setStairDown(m_Rooms[randomRow][randomColumn]);
+	}
+
+	randomRow = rand() % SIZE;
+	randomColumn = rand() % SIZE;
+
+	if (!below && !last)
+	{
+		below = true;
+		m_StairDown = m_Rooms[randomRow][randomColumn];
+	}
 }
 
 void Floor::updateMap(Room* currentRoom)
@@ -289,11 +309,11 @@ void Floor::updateMap(Room* currentRoom)
 				}
 				if (m_Rooms[rows][column]->getWest() != nullptr)
 				{
-					m_Map[rows * 2][(column * 2) + 1] = "-";
+					m_Map[rows * 2][(column * 2) - 1] = "-";
 				}
 				if (m_Rooms[rows][column]->getEast() != nullptr)
 				{
-					m_Map[rows * 2][(column * 2) - 1] = "-";
+					m_Map[rows * 2][(column * 2) + 1] = "-";
 				}
 				if (m_Rooms[rows][column]->getSouth() != nullptr)
 				{
@@ -307,7 +327,6 @@ void Floor::updateMap(Room* currentRoom)
 			}
 		}
 	}
-	int foo = 0;
 }
 void Floor::updateMapCheat(Room* currentRoom)
 {

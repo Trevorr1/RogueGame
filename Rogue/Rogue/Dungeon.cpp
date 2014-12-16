@@ -39,6 +39,9 @@ Dungeon::Dungeon(int rseed)
 			Floor* tempFloor = new Floor(f, rseed);
 			tempFloor->generateRooms(nullptr, false);
 			m_Floors->push_back(tempFloor);
+			m_CurrentFloor = tempFloor;
+			m_CurrentRoom = m_CurrentFloor->getStartingRoom();
+			int foo = 0;
 		}
 		else if (f == DUNGEON_SIZE - 1)
 		{
@@ -127,7 +130,8 @@ void Dungeon::resolveDamageToBaddies(string baddie)
 		}
 	}
 
-	m_CurrentRoom->clearCorpses();
+	int exp = m_CurrentRoom->clearCorpses();
+	m_Player->lvlUp(exp);
 }
 
 void Dungeon::attackPlayer(Opponent* baddie)
