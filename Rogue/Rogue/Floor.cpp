@@ -309,11 +309,11 @@ void Floor::updateMap(Room* currentRoom)
 				}
 				if (m_Rooms[rows][column]->getWest() != nullptr)
 				{
-					m_Map[rows * 2][(column * 2) + 1] = "-";
+					m_Map[rows * 2][(column * 2) - 1] = "-";
 				}
 				if (m_Rooms[rows][column]->getEast() != nullptr)
 				{
-					m_Map[rows * 2][(column * 2) - 1] = "-";
+					m_Map[rows * 2][(column * 2) + 1] = "-";
 				}
 				if (m_Rooms[rows][column]->getSouth() != nullptr)
 				{
