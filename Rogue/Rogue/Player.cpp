@@ -19,6 +19,7 @@ Player::Player()
 
 Player::~Player()
 {
+	delete m_Inventory;
 }
 
 void Player::lvlUp(int exp)
