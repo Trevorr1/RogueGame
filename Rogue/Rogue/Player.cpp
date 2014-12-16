@@ -84,8 +84,6 @@ void Player::heal(int health)
 
 void Player::use(string item)
 {
-	bool done = false;
-
 	for (auto i : *m_Inventory)
 	{
 		string name = i->getName();
@@ -104,7 +102,7 @@ void Player::discardUsedItems()
 {
 	for (auto it = m_Inventory->cbegin(); it != m_Inventory->cend();)
 	{
-		if (!(*it)->isUsed())
+		if ((*it)->isUsed())
 		{
 			it = m_Inventory->erase(it);
 		}

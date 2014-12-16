@@ -45,7 +45,7 @@ void MenuUseObject::handleInput(MenuFactory* context, string input)
 	else // no opponents in this room
 	{
 		cout << "Your inventory is empty. You have no items to use.\n\n";
-		context->getRoomMenu(context->getDungeon()->getCurrentRoom());
+		context->setMenu(context->getRoomMenu(context->getDungeon()->getCurrentRoom()));
 	}
 }
 

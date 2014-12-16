@@ -47,7 +47,9 @@ int main(int argc, const char* argv[])
 		string input;
 		cout << "Please enter an string value: ";
 
-		cin >> input;
+		//cin >> input;
+
+		std::getline(std::cin, input);
 		if (input != "exit"){
 			//cout << "The value you entered is " << input << endl;
 			manager->handleInput(input);
