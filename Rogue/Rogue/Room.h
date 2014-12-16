@@ -62,7 +62,7 @@ public:
 	void takeItem() { m_Item = nullptr; }
 	
 	vector<Opponent*>* getOpponents() { return m_Opponents; }
-	void clearCorpses();
+	int clearCorpses();
 
 private:
 	vector<string>* m_Traits;

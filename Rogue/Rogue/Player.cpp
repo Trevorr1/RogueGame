@@ -12,6 +12,7 @@ Player::Player()
 	m_Atk = 10;
 	m_Def = 5;
 	m_Awareness = 1;
+	m_GrowthMult = 2;
 	m_Inventory = new vector<Item*>();
 }
 
@@ -28,8 +29,19 @@ void Player::lvlUp(int exp)
 	{
 		m_Exp %= expCap;
 		m_Level++;
-		cout << "Your level has increase!" << endl;
+		grow();
+		cout << "\nYour level has increase!\n\n";
+		printStats();
 	}
+}
+
+void Player::grow()
+{
+	m_Health *= m_GrowthMult;
+	m_CurrentHealth = m_Health;
+	m_Atk *= m_GrowthMult;
+	m_Def *= m_GrowthMult;
+	m_Awareness *= m_GrowthMult;
 }
 
 void Player::pickUp(Item* item)
@@ -37,10 +49,15 @@ void Player::pickUp(Item* item)
 	m_Inventory->push_back(item);
 }
 
-string Player::printStats()
+void Player::printStats()
 {
-	// some fancy display for the stats
-	return "";
+	cout << "Your stats are:\n";
+	cout << "Level: " << to_string(m_Level) << "\n";
+	cout << "Health: " << to_string(m_Health) << "\n";
+	cout << "Atk: " << to_string(m_Atk) << "\n";
+	cout << "Def: " << to_string(m_Def) << "\n";
+	cout << "Awareness: " << to_string(m_Awareness) << "\n\n";
+
 }
 
 string Player::printInventory()

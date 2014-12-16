@@ -127,7 +127,8 @@ void Dungeon::resolveDamageToBaddies(string baddie)
 		}
 	}
 
-	m_CurrentRoom->clearCorpses();
+	int exp = m_CurrentRoom->clearCorpses();
+	m_Player->lvlUp(exp);
 }
 
 void Dungeon::attackPlayer(Opponent* baddie)

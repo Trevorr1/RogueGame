@@ -19,7 +19,7 @@ public:
 	void discardUsedItems();
 
 	void pickUp(Item* item);
-	string printStats();
+	void printStats();
 	string printInventory();
 
 	bool isAlive() { return m_Alive; }
@@ -44,8 +44,10 @@ private:
 	int m_Atk;
 	int m_Def;
 	int m_Awareness;
-
+	int m_GrowthMult;
 	bool m_Alive;
 	vector<Item*> *m_Inventory;
+
+	void grow();
 
 };
