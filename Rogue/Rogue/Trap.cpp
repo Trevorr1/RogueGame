@@ -21,3 +21,8 @@ void Trap::deactivate()
 {
 	this->active = false;
 }
+
+void Trap::activate()
+{
+	this->active = true;
+}

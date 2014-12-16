@@ -68,7 +68,7 @@ void Room::printRoomText()
 	desc += m_Traits->at(0) + " " + m_Traits->at(1); //desc += m_Traits.at(0) + " " + m_Traits.at(3);
 	desc += " room that is ";
 	desc += m_Traits->at(2);
-	desc += ". It's " + m_Traits->at(3) + " and" + m_Traits->at(4) + ".\n"; //desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
+	desc += ". It's " + m_Traits->at(3) + " and " + m_Traits->at(4) + ".\n"; //desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
 	desc += m_Traits->at(5) + "\n\n"; //desc += m_Traits.at(6);
 
 	// print room exits
@@ -84,7 +84,14 @@ void Room::printRoomText()
 		desc += "A Upstair found \n\n";
 	}
 
-	cout << desc << " " << exits << " " << enemies << endl << endl;
+	string trap = "";
+
+	////trap
+	//if (m_Trap != nullptr){
+	//	trap += "A trap: " + m_Trap->getName() + " is found \n\n";
+	//}
+
+	cout << desc << exits  << enemies << trap << endl << endl;
 	//return desc + exits + enemies + "\n\n";
 }
 
@@ -292,7 +299,7 @@ Item* Room::search()
 	if (m_Trap != nullptr)
 	{
 		cout << "You found and deactivated a " << m_Trap->getName() << "\n\n";
-		delete m_Trap;
+		m_Trap->deactivate();//delete m_Trap;
 	}
 	if (m_Item != nullptr)
 	{

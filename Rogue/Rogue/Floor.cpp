@@ -366,6 +366,10 @@ void Floor::updateMapCheat(Room* currentRoom)
 				m_Map[rows * 2][column * 2] = "SU";
 			}
 
+			if (m_Rooms[rows][column]->getTrap() != nullptr){
+				m_Map[rows * 2][column * 2] = "T";
+			}
+
 		}
 	}
 	int foo = 0;

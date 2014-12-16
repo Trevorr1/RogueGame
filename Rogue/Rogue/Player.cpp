@@ -56,6 +56,10 @@ string Player::printInventory()
 	return s + "\n";
 }
 
+void Player::printHealth(){
+	cout << "\nCurrent health is " << this->getCurrentHealth() << endl;
+}
+
 void Player::rest()
 {
 	int toHeal = 0;

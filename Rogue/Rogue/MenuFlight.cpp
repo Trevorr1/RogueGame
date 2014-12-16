@@ -62,6 +62,21 @@ void MenuFlight::handleInput(MenuFactory* context, string input)
 				}
 			}
 		}
+
+		Trap* trap = context->getDungeon()->getCurrentRoom()->getTrap();
+		if (trap != nullptr){
+			//Trap is active
+			if (trap->getActive()){
+				context->getDungeon()->getPlayer()->damage(trap->getDamage());
+				context->getDungeon()->getCurrentRoom()->setTrapActivated();
+				cout << "\nA "<< trap->getName() << " has been activated and exploded.\nYour health has reduced by " << trap->getDamage() << "." << endl << endl;
+			}
+			else{
+				//Trap was deactivated by search, so set back to true
+				trap->activate();
+			}
+		}
+
 		//set Room
 		context->getDungeon()->getCurrentRoom()->setVisited();
 		context->getDungeon()->setCurrentRoom(nextMove);

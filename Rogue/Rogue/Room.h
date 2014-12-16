@@ -56,6 +56,7 @@ public:
 
 	Trap* getTrap(){ return m_Trap; };
 	void setTrap(int level);
+	void setTrapActivated(){ this->m_Trap = nullptr; };
 
 	Item* getItem(){ return m_Item; };
 

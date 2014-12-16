@@ -24,7 +24,7 @@ public:
 	//MenuFlight* getFlightMenu() { return new MenuFlight(); }
 	MenuFlight* getFlightMenu(Room* room) { return new MenuFlight(room); }
 	MenuFight* getFightMenu() { return new MenuFight(); }
-	MenuRoom* getRoomMenu(Room* room) { return new MenuRoom(room); }
+	MenuRoom* getRoomMenu(Room* room);
 	MenuInventory* getInventoryMenu() { return new MenuInventory(); }
 	MenuUseObject* getUseObjectMenu(Player* player) { return new MenuUseObject(player); }
 	MenuDrink* getDrinkMenu() { return new MenuDrink(); }

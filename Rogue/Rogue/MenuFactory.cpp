@@ -36,3 +36,8 @@ void MenuFactory::setMenu(Menu* next)
 	}
 	m_Current = next;
 }
+
+MenuRoom* MenuFactory::getRoomMenu(Room* room) {
+	m_Dungeon->getPlayer()->printHealth();
+return new MenuRoom(room);
+}

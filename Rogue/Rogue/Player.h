@@ -21,6 +21,7 @@ public:
 	void pickUp(Item* item);
 	string printStats();
 	string printInventory();
+	void printHealth();
 
 	bool isAlive() { return m_Alive; }
 	bool isItems() { return (m_Inventory->size() > 0); }
