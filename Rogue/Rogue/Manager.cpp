@@ -186,7 +186,7 @@ string Manager::handleInventoryInput(string input)
 	}
 	else
 	{
-		ret += dungeon->getPlayer()->use(input);
+		//ret += dungeon->getPlayer()->use(input);
 		explore();
 	}
 

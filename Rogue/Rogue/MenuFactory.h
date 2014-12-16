@@ -26,7 +26,7 @@ public:
 	MenuFight* getFightMenu() { return new MenuFight(); }
 	MenuRoom* getRoomMenu(Room* room) { return new MenuRoom(room); }
 	MenuInventory* getInventoryMenu() { return new MenuInventory(); }
-	MenuUseObject* getUseObjectMenu() { return new MenuUseObject(); }
+	MenuUseObject* getUseObjectMenu(Player* player) { return new MenuUseObject(player); }
 	MenuDrink* getDrinkMenu() { return new MenuDrink(); }
 
 	Dungeon* getDungeon() { return m_Dungeon; }

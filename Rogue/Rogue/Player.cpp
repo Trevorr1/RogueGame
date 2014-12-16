@@ -12,6 +12,7 @@ Player::Player()
 	m_Atk = 10;
 	m_Def = 5;
 	m_Awareness = 1;
+	m_Inventory = new vector<Item*>();
 }
 
 
@@ -81,22 +82,33 @@ void Player::heal(int health)
 	if (m_CurrentHealth > m_Health) m_CurrentHealth = m_Health;
 }
 
-string Player::use(string item)
+void Player::use(string item)
 {
-	string ret = "";
-	int toremove = 0;
-	bool done = false;
-	for (std::vector<Item*>::size_type i = 0; i != m_Inventory->size(); i++) {
-		if (m_Inventory->at(i)->getName().compare(item) == 0) 
+	for (auto i : *m_Inventory)
+	{
+		string name = i->getName();
+		if (name.compare(item) == 0)
 		{
-			toremove = i;
-			done = true;
-			heal(m_Inventory->at(i)->getHealth());
-			ret += "You used " + item + " and healed " + to_string(m_Inventory->at(i)->getHealth()) + ".\n\n";
+			i->use();
+			heal(i->getHealth());
+			cout << "You used " << item << " and healed " << to_string(i->getHealth()) << ".\n\n";
 			break;
 		}
 	}
-	if (done) m_Inventory->erase(m_Inventory->begin() + toremove);
+	discardUsedItems();
+}
 
-	return ret + "\n\n";
+void Player::discardUsedItems()
+{
+	for (auto it = m_Inventory->cbegin(); it != m_Inventory->cend();)
+	{
+		if ((*it)->isUsed())
+		{
+			it = m_Inventory->erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
 }
