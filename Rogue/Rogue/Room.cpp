@@ -76,6 +76,14 @@ void Room::printRoomText()
 	
 	// print enemies
 	string enemies = "Present: " + printOpponents() + "\n\n";
+
+	if (m_StairDown != nullptr){
+		desc += "A downstair found \n\n";
+	}
+	if (m_StairDown != nullptr){
+		desc += "A Upstair found \n\n";
+	}
+
 	cout << desc << " " << exits << " " << enemies << endl << endl;
 	//return desc + exits + enemies + "\n\n";
 }

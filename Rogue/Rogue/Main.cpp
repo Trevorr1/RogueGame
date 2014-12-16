@@ -15,7 +15,7 @@
 //#define new DEBUG_NEW
 //#endif
 
-//#include <vld.h>
+#include <vld.h>
 
 using namespace std;
 

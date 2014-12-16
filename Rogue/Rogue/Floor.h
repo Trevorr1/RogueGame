@@ -17,6 +17,8 @@ public:
 
 	void generateRooms(Room* roomAbove, bool last);
 	void updateMap(Room* currentRoom);
+	void updateMapCheat(Room* currentRoom);
+
 	void printFloor();
 
 	void setStairUp(Room* up);

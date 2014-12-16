@@ -309,6 +309,67 @@ void Floor::updateMap(Room* currentRoom)
 	}
 	int foo = 0;
 }
+void Floor::updateMapCheat(Room* currentRoom)
+{
+	for (int rows = 0; rows < SIZE; rows++)
+	{
+		for (int column = 0; column < SIZE; column++)
+		{
+			m_Map[rows * 2][column * 2] = m_Rooms[rows][column]->printRoom();
+			if (m_Rooms[rows][column]->getVisited())
+			{
+				if (m_Rooms[rows][column]->getNorth() != nullptr)
+				{
+					m_Map[(rows * 2) - 1][column * 2] = "|";
+				}
+				if (m_Rooms[rows][column]->getWest() != nullptr)
+				{
+					m_Map[rows * 2][(column * 2) + 1] = "-";
+				}
+				if (m_Rooms[rows][column]->getEast() != nullptr)
+				{
+					m_Map[rows * 2][(column * 2) - 1] = "-";
+				}
+				if (m_Rooms[rows][column]->getSouth() != nullptr)
+				{
+					m_Map[(rows * 2) + 1][column * 2] = "|";
+				}
+
+			}
+			//check for CurrentRoom
+			if (m_Rooms[rows][column] == currentRoom && m_Map[rows * 2][column * 2] != "S"){
+				m_Map[rows * 2][column * 2] = "C";
+
+				//check for StairDown && StairUp
+				if (m_Rooms[rows][column]->getStairDown() != nullptr && m_Rooms[rows][column]->getStairUp() != nullptr){
+					m_Map[rows * 2][column * 2] = "CSDSU";
+				}
+				//check for StairDown
+				else if (m_Rooms[rows][column]->getStairDown() != nullptr){
+					m_Map[rows * 2][column * 2] = "CSD";
+				}
+				//check for StairUp
+				else if (m_Rooms[rows][column]->getStairUp() != nullptr){
+					m_Map[rows * 2][column * 2] = "CSU";
+				}
+			}
+			//check for StairDown && StairUp
+			else if (m_Rooms[rows][column]->getStairDown() != nullptr && m_Rooms[rows][column]->getStairUp() != nullptr){
+				m_Map[rows * 2][column * 2] = "SDSU";
+			}
+			//check for StairDown
+			else if (m_Rooms[rows][column]->getStairDown() != nullptr){
+				m_Map[rows * 2][column * 2] = "SD";
+			}
+			//check for StairUp
+			else if (m_Rooms[rows][column]->getStairUp() != nullptr){
+				m_Map[rows * 2][column * 2] = "SU";
+			}
+
+		}
+	}
+	int foo = 0;
+}
 
 void Floor::printFloor()
 {

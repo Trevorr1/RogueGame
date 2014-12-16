@@ -42,13 +42,30 @@ void MenuFlight::handleInput(MenuFactory* context, string input)
 		else if (input == "up")
 		{
 			nextMove = context->getDungeon()->getCurrentRoom()->getStairUp();
+			
+			//search floor and set current floor-1
+			for (int i = 0; i < context->getDungeon()->getFloors()->size(); i++){
+				if (context->getDungeon()->getCurrentFloor() == context->getDungeon()->getFloors()->at(i)){
+					context->getDungeon()->setCurrentFloor(context->getDungeon()->getFloors()->at(i-1));
+				}
+			}
 		}
 		else if (input == "down")
 		{
 			nextMove = context->getDungeon()->getCurrentRoom()->getStairDown();
+
+			//search floor and set current floor+1
+			for (int i = 0; i < context->getDungeon()->getFloors()->size(); i++){
+				if (context->getDungeon()->getCurrentFloor() == context->getDungeon()->getFloors()->at(i)){
+					context->getDungeon()->setCurrentFloor(context->getDungeon()->getFloors()->at(i+1));
+					break;
+				}
+			}
 		}
+		//set Room
 		context->getDungeon()->getCurrentRoom()->setVisited();
 		context->getDungeon()->setCurrentRoom(nextMove);
+
 		context->setMenu(context->getRoomMenu(nextMove));
 	}
 	else {

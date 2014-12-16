@@ -48,6 +48,11 @@ void MenuRoom::handleInput(MenuFactory* context, string input)
 	else if (input == "map"){
 		map(context);
 	}
+	else if (input == "mapcheat"){
+		context->getDungeon()->getCurrentFloor()->updateMapCheat(context->getDungeon()->getCurrentRoom());
+		context->getDungeon()->getCurrentFloor()->printFloor();
+		printOptions();
+	}
 	else{
 		cout << "Choose another option please.\n\n" << endl;
 	}
