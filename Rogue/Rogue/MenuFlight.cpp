@@ -23,7 +23,11 @@ void MenuFlight::handleInput(MenuFactory* context, string input)
 	if (std::find(m_Options.begin(), m_Options.end(), input) != m_Options.end()) 
 	{
 		Room* nextMove = nullptr;
-		if (input == "north")
+		if (input.compare("back") == 0)
+		{
+			nextMove = context->getDungeon()->getCurrentRoom();
+		}
+		else if (input == "north")
 		{
 			nextMove = context->getDungeon()->getCurrentRoom()->getNorth();
 		}
@@ -100,5 +104,6 @@ void MenuFlight::updateOptions(Room* room)
 	{
 		m_Options.push_back("down");
 	}
+	m_Options.push_back("back");
 
 }

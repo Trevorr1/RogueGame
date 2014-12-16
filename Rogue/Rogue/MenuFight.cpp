@@ -9,6 +9,7 @@ MenuFight::MenuFight()
 	m_Options.push_back("run");
 	m_Options.push_back("drink");
 	m_Options.push_back("use");
+	m_Options.push_back("back");
 
 	printOptions();
 }
@@ -39,6 +40,10 @@ void MenuFight::handleInput(MenuFactory* context, string input)
 	else if (input == "items")
 	{
 		context->setMenu(context->getInventoryMenu());
+	}
+	else if (input.compare("back") == 0)
+	{
+		context->setMenu(context->getRoomMenu(context->getDungeon()->getCurrentRoom()));
 	}
 	else{
 		cout << "Choose another option please.\n\n" << endl;

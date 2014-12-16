@@ -8,7 +8,7 @@ public:
 	MenuRoom();
 	MenuRoom(Room* room);
 	virtual ~MenuRoom();
-
+	
 	void handleInput(MenuFactory* context, string input);
 	void search(MenuFactory* context);
 	void map(MenuFactory* context);
