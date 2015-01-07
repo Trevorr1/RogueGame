@@ -77,7 +77,7 @@ void Room::printRoomText()
 	// print enemies
 	string enemies = "Present: " + printOpponents() + "\n\n";
 
-	cout << desc << " " << exits << " " << enemies << endl << endl;
+	cout << desc << " " << exits << " " << enemies << "\n\n";
 	//return desc + exits + enemies + "\n\n";
 }
 
