@@ -65,8 +65,8 @@ char* Room::printRoom()
 void Room::printRoomText()
 {
 	string desc = "Description: You're in a ";
-	desc += m_Traits->at(0) + " " + m_Traits->at(1); //desc += m_Traits.at(0) + " " + m_Traits.at(3);
-	desc += " room that is ";
+	desc += m_Traits->at(0) + " room that is " + m_Traits->at(1); //desc += m_Traits.at(0) + " " + m_Traits.at(3);
+	desc += " and ";
 	desc += m_Traits->at(2);
 	desc += ". It's " + m_Traits->at(3) + " and " + m_Traits->at(4) + ".\n"; //desc += ". It's " + m_Traits.at(1) + " and" + m_Traits.at(5) + ".\n";
 	desc += m_Traits->at(5) + "\n\n"; //desc += m_Traits.at(6);
